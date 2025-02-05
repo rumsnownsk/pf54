@@ -1,0 +1,1 @@
+console.log('test2.js2 work2')

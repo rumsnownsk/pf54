@@ -1,0 +1,7 @@
+vendor/
+tmp/
+
+.idea
+.git
+
+
