@@ -1,7 +1,9 @@
 vendor/
-tmp/
+tmp/errors.log
+tmp/cache/
+public/webstat/
+
+config/config.php
 
 .idea
 .git
-
-
