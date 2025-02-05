@@ -56,7 +56,7 @@
 
             <div class="col-lg-2">
                 <a href="/">
-                    <img src="/assets/images/logo.png" class="logo" title="Паспорт фасада новосибирск"/>
+                    <img src="/public/assets/images/logo.png" class="logo" title="Паспорт фасада новосибирск"/>
                 </a>
                 <div id="menuShow">
                     <i class="fa fa-bars" aria-hidden="true"></i>

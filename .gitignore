@@ -1,5 +1,7 @@
 vendor/
-tmp/
+tmp/cache
+tmp/_config.php
+tmp/errors.log
 
 .idea
 .git
