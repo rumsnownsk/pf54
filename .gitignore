@@ -1,9 +1,16 @@
+config/config.php
 vendor/
+<<<<<<< HEAD
 tmp/cache/
 /public/webstat/
 /config/config.php
 public/favicon.png
 public/images/favicon.png
+=======
+tmp/cache
+tmp/_config.php
+tmp/errors.log
+>>>>>>> f875c8c6af6c0eb296d20fe680e00c80567c9305
 
 tmp/_config.php
 tmp/config.php
