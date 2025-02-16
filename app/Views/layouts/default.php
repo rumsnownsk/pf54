@@ -6,8 +6,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?= get_csrf_meta(); ?>
-    <link rel="icon" href="/assets/images/favicon.png">
-    <link rel="stylesheet" href="<?= base_url('/assets/bootstrap/css/bootstrap.min.css')?>">
+    <link rel="icon" href="/images/favicon.ico">
+<!--    <link rel="stylesheet" href="--><?//= base_url('/assets/bootstrap/css/bootstrap.min.css')?><!--">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link type='text/css' rel="stylesheet" href="/assets/css/main.css" />
 
     <meta name="description"
@@ -56,7 +57,7 @@
 
             <div class="col-lg-2">
                 <a href="/">
-                    <img src="/assets/images/logo.png" class="logo" title="Паспорт фасада новосибирск"/>
+                    <img src="/images/logo.png" class="logo" title="Паспорт фасада новосибирск"/>
                 </a>
                 <div id="menuShow">
                     <i class="fa fa-bars" aria-hidden="true"></i>
@@ -89,7 +90,7 @@
                 <nav id="main-nav" class="main-nav">
 
                     <div id="classicMenu">
-                        <?= $menu ?>
+                        <?= /** @var string $menu */ $menu ?>
                     </div>
                 </nav>
             </div>
@@ -98,8 +99,7 @@
 
 <?php get_alerts(); ?>
 
-<?= /** @var string $content */
-$content; ?>
+<?= /** @var string $content */ $content; ?>
 
 <script type="text/javascript" src="<?= base_url('/assets/js/jquery-3.7.1.min.js')?>"></script>
 <script type="text/javascript" src="<?= base_url('/assets/bootstrap/js/bootstrap.bundle.min.js')?>"></script>

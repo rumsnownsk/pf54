@@ -12,6 +12,7 @@ require_once __DIR__."/../config/config.php";
 require_once __DIR__."/../helpers/helpers.php";
 require_once ROOT."/vendor/autoload.php";
 
+var_dump(ROOT);
 $whoops = new \Whoops\Run;
 if (DEBUG) {
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler())->register();

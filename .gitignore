@@ -1,9 +1,14 @@
 vendor/
-tmp/errors.log
 tmp/cache/
-public/webstat/
+/public/webstat/
+/config/config.php
+public/favicon.png
+public/images/favicon.png
 
-config/config.php
+tmp/_config.php
+tmp/config.php
+tmp/errors.log
+
 
 .idea
 .git
