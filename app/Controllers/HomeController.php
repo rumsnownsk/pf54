@@ -5,9 +5,11 @@ class HomeController extends BaseController
 {
     public function index()
     {
+        $lastWorks = db()->query("select * from works order by id desc limit 3")->get();
         return view('home', [
             'title'=>'Home page',
-            'menu' => $this->renderMenu()
+            'menu' => $this->renderMenu(),
+            'lastWorks' => $lastWorks
         ]);
     }
 

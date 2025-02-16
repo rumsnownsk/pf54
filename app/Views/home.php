@@ -12,27 +12,25 @@
             </p>
         </div>
         <div class="countWork">
-            <!--            <div class="countWork__icon">-->
             <i class="fa fa-check-square-o" aria-hidden="true"></i>
-            <!--            </div>-->
             <p>более 160<br>разработанных&nbsp;паспортов</p>
 
         </div>
         <div class="lastWorks">
-            <p>последние выполненные паспорта</p>
+            <h3>последние выполненные паспорта</h3>
             <div class="lastWorks_window">
-                <div class="lastWorks_item">
-                    <img src="/images/common/no_photo_passport.jpg" alt="паспорт фасадов" class="lastWork_img">
-                </div>
-                <div class="lastWorks_item">
-                    <img src="/images/common/no_photo_passport.jpg" alt="паспорт фасадов" class="lastWork_img">
-                </div>
-                <div class="lastWorks_item">
-                    <img src="/images/common/no_photo_passport.jpg" alt="паспорт фасадов" class="lastWork_img">
-                </div>
+
+                <?php if (!empty($lastWorks)) : ?>
+                    <?php foreach ($lastWorks as $lastWork) : ?>
+                        <div class="lastWorks_item">
+                            <img src="/images/common/no_passport.jpg" alt="паспорт фасадов" class="lastWork_img">
+                            <p><?= $lastWork['title'] ?></p>
+                        </div>
+                    <?php endforeach; endif; ?>
+
             </div>
             <div class="more_item">
-                <a href="#">готовые паспорта...</a>
+                <a href="#">другие готовые паспорта...</a>
             </div>
         </div>
     </div>
