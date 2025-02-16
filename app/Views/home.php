@@ -23,7 +23,7 @@
                 <?php if (!empty($lastWorks)) : ?>
                     <?php foreach ($lastWorks as $lastWork) : ?>
                         <div class="lastWorks_item">
-                            <img src="/images/common/no_passport.jpg" alt="паспорт фасадов" class="lastWork_img">
+                            <img src="/images/works/<?= $lastWork['photoName'] ?>" alt="паспорт фасадов" class="lastWork_img">
                             <p><?= $lastWork['title'] ?></p>
                         </div>
                     <?php endforeach; endif; ?>
