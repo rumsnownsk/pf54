@@ -3,6 +3,7 @@ vendor/
 tmp/cache
 tmp/_config.php
 tmp/errors.log
+public/images/works/
 
 .idea
 .git
