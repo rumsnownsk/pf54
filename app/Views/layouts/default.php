@@ -63,7 +63,7 @@
             </div>
             <div class="header__info">
                 <h1 class="">паспорт фасадов</h1>
-                <p>Разработка. Согласование.</br>Получение документов</p>
+                <p>Разработка. Согласование. Получение</p>
             </div>
             <div class="header__contact">
                 <div class="headerLocation">

@@ -9,6 +9,7 @@ public/webstat/
 tmp/cache/
 tmp/config.php
 tmp/errors.log
+public/images/works/
 
 .idea
 .git
