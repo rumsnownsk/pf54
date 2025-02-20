@@ -1,11 +1,15 @@
-config/config.php
 vendor/
-tmp/cache
-tmp/_config.php
+
+config/config.php
+public/images/works/
+public/favicon.png
+public/images/favicon.png
+public/webstat/
+
+tmp/cache/
+tmp/config.php
 tmp/errors.log
 public/images/works/
 
 .idea
 .git
-
-
