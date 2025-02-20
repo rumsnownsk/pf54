@@ -23,8 +23,9 @@
                 <?php if (!empty($lastWorks)) : ?>
                     <?php foreach ($lastWorks as $lastWork) : ?>
                         <div class="lastWorks_item">
-                            <img src="/images/works/<?= $lastWork['photoName'] ?>" alt="паспорт фасадов"
-                                 class="lastWork_img">
+
+                            <img src="/images/works/<?= $lastWork['photoName'] ?>" alt="паспорт фасадов" class="lastWork_img">
+
                             <p><?= $lastWork['title'] ?></p>
                         </div>
                     <?php endforeach; endif; ?>
@@ -32,6 +33,7 @@
             </div>
             <div class="more_item">
                 <a href="#">другие готовые паспорта...</a>
+
             </div>
         </div>
         <div class="thisIs">
@@ -71,6 +73,7 @@
                 <p>Для разработки и согласования в мэрии размещения рекламных и информационных конструкций. Актуально для
                     торгово-развлекательных центров, общественных зданий и магазинов.
                 </p>
+
             </div>
             
 
