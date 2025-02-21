@@ -3,7 +3,7 @@ namespace App\Controllers;
 
 class HomeController extends BaseController
 {
-    public function index()
+    public function index(): string|\PHPFrw\View
     {
         $lastWorks = db()->query("select * from works order by id desc limit 3")->get();
         return view('home', [
@@ -13,9 +13,15 @@ class HomeController extends BaseController
         ]);
     }
 
+    public function law(): string|\PHPFrw\View
+    {
+        return view('law', [
+            'menu' => $this->renderMenu()
+        ]);
+    }
+
     public function dashboard()
     {
-
         return view('dashboard', [
             'title'=>'dashboard'
         ]);
