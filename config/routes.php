@@ -12,6 +12,7 @@ const MIDDLEWARE = [
 
 
 $app->router->get('/', [HomeController::class, 'index']);
+$app->router->get('/law', [HomeController::class, 'law']);
 $app->router->get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth']);
 
 $app->router->get('/register', [UserController::class, 'register'])->middleware(['guest']);
