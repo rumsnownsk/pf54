@@ -7,7 +7,7 @@ class HomeController extends BaseController
     {
         $lastWorks = db()->query("select * from works order by id desc limit 3")->get();
         return view('home', [
-            'title'=>'Home page',
+            'title'=>' :: Главная',
             'menu' => $this->renderMenu(),
             'lastWorks' => $lastWorks
         ]);
@@ -16,6 +16,15 @@ class HomeController extends BaseController
     public function law(): string|\PHPFrw\View
     {
         return view('law', [
+            'title' => ' :: Закон',
+            'menu' => $this->renderMenu()
+        ]);
+    }
+
+    public function service(): string|\PHPFrw\View
+    {
+        return view('service', [
+            'title' => ' :: Дополнительные услуги',
             'menu' => $this->renderMenu()
         ]);
     }
