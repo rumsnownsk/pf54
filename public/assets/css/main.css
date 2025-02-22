@@ -20,7 +20,7 @@ h2{
 }
 
 p, a{
-    margin: 0;
+    margin: 0 auto;
     color: #595b5c;
 }
 
@@ -140,6 +140,7 @@ a{
 
 .mainContent{
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .aboutUs{
@@ -308,3 +309,59 @@ a{
     /*border: 1px solid;*/
     border-radius: 40px;
 }
+
+/*section law*/
+
+.lawItem p{
+    color: #131414;
+}
+
+.lawItem{
+    display: flex;
+    width: 980px;
+    margin: 28px auto 0;
+}
+
+.lawItem_whatIs{
+    border-radius: 10px;
+    padding-top: 20px;
+    background-color: #c5c6c5;
+    text-align: center;
+    width: 22%;
+    height: 100px;
+}
+
+p.law_num{
+    color: #f8843f;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 1em !important;
+}
+
+p.law_date{
+    color: #131414;
+    line-height: 1em !important;
+    font-size: 19px;
+}
+
+.lawItem_desc{
+    margin-left: 22px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 7px;
+    border: 2px solid #8a8a8a;
+}
+
+.lawItem_desc{
+    width: 78%;
+    display: flex;
+    align-items: center;
+}
+
+.lawItem_desc p{
+    font-size: 22px;
+    line-height: 1.2em;
+    padding: 0 28px;
+}
+
+/*end section law*/
