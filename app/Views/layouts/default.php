@@ -24,7 +24,7 @@
     <meta name="geo.placename" content="Новосибирск, Россия"/>
     <meta name="geo.region" content="RU-NS"/>
 
-    <title>PHPFr::<?php echo $title ?? ':: '; ?></title>
+    <title>Паспорт Фасадов<?php echo $title ?? ''; ?></title>
 
     <!----webfonts---->
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"

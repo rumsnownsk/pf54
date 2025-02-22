@@ -11,6 +11,6 @@
     </li>
     <li class="menu__item"><a href="<?= base_url('/thanks') ?>">порядок получения паспорта</a></li>
     <li class="menu__item"><a href="<?= base_url('/contact') ?>">рассчитать стоимость и&ensp;сроки</a></li>
-    <li class="menu__item"><a href="<?= base_url('/about') ?>">услуги</a></li>
+    <li class="menu__item"><a href="<?= base_url('/service') ?>">услуги</a></li>
     <li class="menu__item"><a href="<?= base_url('/map') ?>">контакты</a></li>
 </ul>

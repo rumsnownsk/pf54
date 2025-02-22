@@ -365,3 +365,35 @@ p.law_date{
 }
 
 /*end section law*/
+
+/*================================*/
+
+/*start section service*/
+
+.addService{
+    display: flex;
+    flex-wrap: wrap;
+    width: 980px;
+    margin: 50px auto 0;
+    height: 50vh;
+}
+.addService_item{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 0 35px;
+    border: 3px solid #8a8a8a;
+    border-radius: 5px;
+    width: 420px;
+    height: 120px;
+}
+
+.addService_item img{
+    height: 90px;
+    margin: 10px;
+}
+.addService_item p{
+    font-size: 22px;
+    line-height: 1.1em;
+    padding: 0 10px;
+}
