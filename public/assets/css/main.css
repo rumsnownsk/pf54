@@ -1,4 +1,11 @@
+html{
+    height: 100%;
+}
+
 body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     width: 1200px;
     margin: 0 auto;
     padding: 0;
@@ -41,6 +48,7 @@ a{
 .container{
     margin: 0; /*позиционирование по центру*/
     padding: 0;
+    height: 100%;
     background-color: #DBDBDB;
 }
 
@@ -136,6 +144,10 @@ a{
 .menu li {
     width: min-content;
     text-align: center;
+}
+
+section.content{
+    flex: 1 0 auto;
 }
 
 .mainContent{
@@ -374,14 +386,13 @@ p.law_date{
     display: flex;
     flex-wrap: wrap;
     width: 980px;
-    margin: 50px auto 0;
-    height: 50vh;
+    margin: 20px auto 0;
 }
 .addService_item{
     display: flex;
     text-align: center;
     align-items: center;
-    margin: 0 35px;
+    margin: 30px 35px;
     border: 3px solid #8a8a8a;
     border-radius: 5px;
     width: 420px;
