@@ -33,8 +33,8 @@ class Request
 
     public function isAjax(): bool
     {
-        return isset($_SERVER['HTTP_X_REQUEST_WITH']) &&
-            $_SERVER['HTTP_X_REQUEST_WITH'] === 'XMLHttpRequest';
+        return isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+            $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest';
     }
 
     public function get($name, $default = null): ?string

@@ -1,6 +1,9 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\Order;
+use App\Models\User;
+
 class HomeController extends BaseController
 {
     public function index(): string|\PHPFrw\View
@@ -27,6 +30,70 @@ class HomeController extends BaseController
             'title' => ' :: Дополнительные услуги',
             'menu' => $this->renderMenu()
         ]);
+    }
+
+    public function procedure(): string|\PHPFrw\View
+    {
+        return view('procedure', [
+            'menu' => $this->renderMenu(),
+            'info' => $this->renderProcedure()
+        ]);
+    }
+
+    public function priceService(): string|\PHPFrw\View
+    {
+        return view('priceService', [
+            'title' => ' :: Стоимость',
+            'menu' => $this->renderMenu()
+        ]);
+    }
+
+    public function priceCalculate()
+    {
+//        var_dump($_SERVER['HTTP_X_REQUEST_WITH']);
+//        echo json_encode([
+//            'status' => 'dsfsfdfs',
+//            'data' => $_SERVER
+//        ]);
+//        die;
+        $model = new Order();
+        $model->loadData();
+
+        if (request()->isAjax()){
+
+            if (!$model->validate()){
+                echo json_encode([
+                    'status' => 'error',
+                    'data' => $model->listErrors()
+                ]);
+                die;
+            }
+            if ($model->save()){
+                echo json_encode([
+                    'status' => 'success',
+                    'data' => 'мы приняли вашу заявку',
+                    'redirect' => base_url('/')
+                ]);
+            } else {
+                echo json_encode([
+                    'status' => 'error',
+                    'data' => 'something wrong in DB'
+                ]);
+            }
+            die;
+        }
+    }
+
+    public function ajaxRequest()
+    {
+        if (request()->isAjax()) {
+            echo json_encode([
+                'status' => 'success',
+                'page_step' => $this->renderProcedure()
+            ]);
+            die;
+        }
+        echo 'ошибка в ajaxRequest()';die;
     }
 
     public function dashboard()
