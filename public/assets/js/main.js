@@ -1,36 +1,36 @@
 $(function () {
+
     let currentUri = location.origin + location.pathname.replace(/\/$/, '');
-    $('.navbar-menu a').each(function (){
-        let href = $(this).attr('href').replace(/\/$/, '');
-        if (href === currentUri){
+    $('.menu a').each(function () {
+        let href = this.href.replace(/\/$/, '');
+        if (currentUri === href) {
             $(this).addClass('active')
         }
     })
 
-    $('.ajax-form').on('submit', function (e){
+    $('.ajax-form').on('submit', function (e) {
         e.preventDefault();
         let form = $(this);
-        console.log(form)
         let btn = form.find('button');
         let btnText = btn.text();
         let method = form.attr('method');
-        if (method){
+        if (method) {
             method = method.toLowerCase();
         }
+
         let action = form.attr('action') ? form.attr('action') : location.href;
-
-        console.log(action);
-
         $.ajax({
-
+            //
             url: action,
             type: method === 'post' ? 'post' : 'get',
             data: form.serialize(),
-            beforeSend: function (){
+            beforeSend: function () {
                 btn.prop('disable', true).text('Отправляю...');
             },
             success: function (res) {
+                console.log('тута из main.js');
                 res = JSON.parse(res);
+
                 console.log(res);
             },
             error: function () {
@@ -39,4 +39,44 @@ $(function () {
             }
         })
     })
-});
+
+
+    $(document).on('click', '.step_item', function (e) {
+
+        $('a[data-id]').removeClass('active');
+        e.preventDefault();
+
+        let message = 'ok';
+        let step_id = $(this).data('id') || 1;
+
+        if (!step_id) {
+            console.log('non is step_id')
+            message = 'error with step_id'
+            step_id = 1;
+        }
+        $(this).addClass('active');
+
+        $.ajax({
+            url: '/ajaxRequest',
+            type: 'get',
+            dataType: "json",
+            data: {
+                step_id: step_id,
+                message: message
+            },
+            success: function (res) {
+                let el = document.querySelector('#desc_proc')
+                el.remove();
+                $('#proc_desc_area').append(res.page_step)
+            },
+            error: function () {
+                console.log('ошибочка');
+            }
+        });
+
+    })
+
+})
+
+
+

@@ -23,4 +23,13 @@ class BaseController extends Controller
         ]);
     }
 
+    public function renderProcedure(): string
+    {
+        $id = request()->get('step_id');
+        if (!isset($id)){
+            $id = 1;
+        }
+        return view()->renderPartial("incs/procedure/step_{$id}");
+    }
+
 }

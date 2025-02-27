@@ -14,6 +14,11 @@ const MIDDLEWARE = [
 $app->router->get('/', [HomeController::class, 'index']);
 $app->router->get('/law', [HomeController::class, 'law']);
 $app->router->get('/service', [HomeController::class, 'service']);
+$app->router->get('/priceService', [HomeController::class, 'priceService']);
+$app->router->post('/priceCalculate', [HomeController::class, 'priceCalculate']);
+$app->router->get('/procedure', [HomeController::class, 'procedure']);
+$app->router->get('/ajaxRequest', [HomeController::class, 'ajaxRequest']);
+
 $app->router->get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth']);
 
 $app->router->get('/register', [UserController::class, 'register'])->middleware(['guest']);
