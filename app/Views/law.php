@@ -14,7 +14,7 @@
         <h2 style="margin-top: 40px;">постановления мэрии города новосибирска</h2>
         <div class="lawItem">
             <div class="lawItem_whatIs">
-                <p class="law_num">№678</p>
+                <p class="law_num">№647</p>
                 <p class="law_date">от 3 марта 2021 г.</p>
             </div>
             <div class="lawItem_desc">
@@ -34,11 +34,11 @@
         </div>
         <div class="lawItem">
             <div class="lawItem_whatIs">
-                <p class="law_num">№3545</p>
+                <p class="law_num">№3979</p>
                 <p class="law_date">от 29 октября 2019 г.</p>
             </div>
             <div class="lawItem_desc">
-                <p>об архитектурно-художественом регламенте размещения информационных и рекламных конструкций в городе
+                <p>об архитектурно-художественном регламенте размещения информационных и рекламных конструкций в городе
                     новосибирске</p>
             </div>
         </div>

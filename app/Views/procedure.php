@@ -4,8 +4,8 @@
         <div class="procedure">
 <!--            <div class="stages">-->
             <div class="steps" id="steps">
-                <a href="#" class="step_item" data-id="1">
-                    <p class="step_num">11</p>
+                <a href="#" class="step_item active" data-id="1">
+                    <p class="step_num">1</p>
                     <p class="step_desc">Заключение договора с Подрядчиком</p>
                 </a>
                 <a href="#" class="step_item" data-id="2">
@@ -26,6 +26,14 @@
                 </a>
                 <a href="#" class="step_item" data-id="6">
                     <p class="step_num">6</p>
+                    <p class="step_desc">Подготовка Подрядчиком альбома паспорта фасадов здания</p>
+                </a>
+                <a href="#" class="step_item" data-id="7">
+                    <p class="step_num">7</p>
+                    <p class="step_desc">Подготовка Подрядчиком альбома паспорта фасадов здания</p>
+                </a>
+                <a href="#" class="step_item" data-id="8">
+                    <p class="step_num">8</p>
                     <p class="step_desc">Подготовка Подрядчиком альбома паспорта фасадов здания</p>
                 </a>
             </div>

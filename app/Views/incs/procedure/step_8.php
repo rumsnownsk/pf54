@@ -1,7 +1,7 @@
 <div id="desc_proc" class="desc_proc">
-    <div class="num_procedure">6 этап</div>
+    <div class="num_procedure">8 этап</div>
     <div class="icon_procedure">
-        <img src="/images/png/procedure/6.png" alt="">
+        <img src="/images/png/procedure/8.png" alt="">
     </div>
     <p class="p_title">Подписание паспорта фасадов собственником здания</p>
     <p class="p_procedure">Согласно п. 2.4. постановления №647 от 03.03.2021 г мэрия выдает паспорт фасадов

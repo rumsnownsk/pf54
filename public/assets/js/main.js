@@ -1,5 +1,6 @@
 $(function () {
 
+    /* подсветка активного пункта меню в Навигации */
     let currentUri = location.origin + location.pathname.replace(/\/$/, '');
     $('.menu a').each(function () {
         let href = this.href.replace(/\/$/, '');
@@ -8,6 +9,8 @@ $(function () {
         }
     })
 
+    /* отправка заявки для рассмотрения стоимости
+    * получения Паспорта Фасада */
     $('.ajax-form').on('submit', function (e) {
         e.preventDefault();
         let form = $(this);
@@ -20,7 +23,6 @@ $(function () {
 
         let action = form.attr('action') ? form.attr('action') : location.href;
         $.ajax({
-            //
             url: action,
             type: method === 'post' ? 'post' : 'get',
             data: form.serialize(),
@@ -40,9 +42,9 @@ $(function () {
         })
     })
 
-
+    /* подсветка активного пункта на странице Порядок Получения
+    * паспорта фасада */
     $(document).on('click', '.step_item', function (e) {
-
         $('a[data-id]').removeClass('active');
         e.preventDefault();
 
@@ -55,6 +57,7 @@ $(function () {
             step_id = 1;
         }
         $(this).addClass('active');
+        // $(this).css({'box-shadow': 'none'});
 
         $.ajax({
             url: '/ajaxRequest',
@@ -73,9 +76,7 @@ $(function () {
                 console.log('ошибочка');
             }
         });
-
     })
-
 })
 
 
