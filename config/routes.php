@@ -18,6 +18,7 @@ $app->router->get('/priceService', [HomeController::class, 'priceService']);
 $app->router->post('/priceCalculate', [HomeController::class, 'priceCalculate']);
 $app->router->get('/procedure', [HomeController::class, 'procedure']);
 $app->router->get('/ajaxRequest', [HomeController::class, 'ajaxRequest']);
+$app->router->get('/contacts', [HomeController::class, 'contacts']);
 
 $app->router->get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth']);
 

@@ -561,6 +561,11 @@ p.font_classic {
     color: #171515;
     margin-top: 20px;
 }
+p.font_classic2 {
+     text-align: center;
+     color: #171515;
+     margin-top: 20px;
+ }
 
 .p_note {
     text-align: center;
