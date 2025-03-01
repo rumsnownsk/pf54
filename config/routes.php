@@ -10,7 +10,7 @@ const MIDDLEWARE = [
     'guest' => \PHPFrw\Middleware\Guest::class,
 ];
 
-
+,sadfajf
 $app->router->get('/', [HomeController::class, 'index']);
 $app->router->get('/law', [HomeController::class, 'law']);
 $app->router->get('/service', [HomeController::class, 'service']);
