@@ -1,5 +1,5 @@
 <?php
-
+//var_dump(__DIR__."/../config/config.php");die;
 $start_fr = microtime(true);
 
 if (PHP_MAJOR_VERSION < 8){
