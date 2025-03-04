@@ -1,0 +1,577 @@
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    font-family: "PT Sans", serif;
+    color: #000;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+p, a {
+    margin: 0 auto;
+    color: #595b5c;
+}
+
+p {
+    text-indent: 16px;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.center_p {
+    display: block;
+    text-align: center;
+}
+
+.container {
+    margin: 0; /*позиционирование по центру*/
+    padding: 0;
+    height: 100%;
+    background-color: #DBDBDB;
+}
+
+.headerLine {
+    padding: 0 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: #4E5254;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    height: auto;
+    /*margin-right: 50px;*/
+    width: 15%
+}
+
+.header__logo img {
+    width: auto;
+    height: 120px;
+    object-fit: cover;
+}
+
+.header__info {
+    width: 60%;
+    display: block;
+    text-align: left;
+}
+
+.header__info h1 {
+    text-align: left;
+    font-size: 46px;
+}
+
+.header__info p {
+    font-size: 22px;
+    line-height: 1;
+    color: #171515;
+}
+
+.header__contact {
+    display: block;
+    color: white;
+}
+
+.header__contact a {
+    color: white;
+}
+
+.header__contact i {
+    font-size: 25px;
+    color: #FF6600;
+    width: 25px;
+    text-align: center;
+}
+
+.header__contact span {
+    margin-left: 5px;
+}
+
+.headerLocation {
+    display: flex;
+}
+
+.menu {
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #808080;
+}
+
+.menu li {
+    list-style-type: none;
+}
+
+.menu li a {
+    display: flex;
+    align-items: center;
+    /*word-spacing: 100vw;*/
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 0 35px;
+    /*margin: 0 5px;*/
+    color: black;
+    height: 65px;
+    line-height: 1.3;
+}
+
+.active {
+    background-color: #d08b65;
+}
+
+.menu li {
+    width: min-content;
+    text-align: center;
+}
+
+section.content {
+    flex: 1 0 auto;
+}
+
+.mainContent {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.aboutUs {
+    margin: 20px 100px;
+}
+
+.aboutUs p {
+    text-align: justify;
+    text-align-last: center;
+    font-size: 20px;
+}
+
+.countWork {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+    width: 360px;
+    height: 80px;
+    border: 3px solid #9CA0A2;
+    border-radius: 8px;
+}
+
+.countWork i {
+    text-align: center;
+    width: 25%;
+    display: block;
+    margin: auto;
+    font-size: 35px;
+    color: #FF6600;
+}
+
+.countWork p {
+    display: block;
+    text-align: left;
+    margin: auto;
+    font-size: 18px;
+    width: 75%;
+}
+
+.countWork__desc {
+    display: block;
+}
+
+.lastWorks {
+    margin: 50px auto;
+    background-color: #808080;
+}
+
+.lastWorks_window {
+    display: flex;
+    height: max-content;
+    justify-content: space-evenly;
+}
+
+.lastWorks_item {
+    width: 380px;
+    background-color: #DBDBDB;
+    padding: 8px;
+}
+
+.lastWorks_item img {
+    width: 100%;
+    background-color: #DBDBDB;
+}
+
+.lastWorks p {
+    margin: 10px 0 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.lastWorks h3 {
+    padding: 20px;
+    font-size: 22px;
+}
+
+.more_item {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    height: 40px;
+}
+
+.more_item a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    background-color: #DBDBDB;
+    margin: auto;
+    display: block;
+    height: 30px;
+    width: 500px;
+}
+
+.orangeFone {
+    /*margin-top: 15px;*/
+    border-radius: 25px;
+    background-color: #deb498;
+    padding: 15px;
+    display: block;
+    width: auto;
+    margin: 15px auto;
+}
+
+/*.intoOrangeFone{*/
+/*    position: relative;*/
+/*    top: 18px;*/
+/*}*/
+.thisIs {
+    margin: 20px 220px;
+}
+
+.whyIt {
+    margin: 50px 220px;
+}
+
+.thisIs p, .whyIt p {
+    text-align: justify;
+    text-align-last: center;
+    font-size: 20px;
+}
+
+.thisIs a {
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    font-size: 20px;
+    border-bottom: 2px solid #595b5c;
+}
+
+.whyIt__head {
+    margin-bottom: 20px;
+}
+
+.whyIt__desc {
+    display: flex;
+    left: -50px;
+    position: relative;
+    width: 810px;
+    /*border: 1px solid;*/
+}
+
+.whyIt__desc img {
+    height: 30px;
+    margin-top: 5px;
+    color: #ff692c;
+}
+
+.whyIt__desc p {
+    margin-left: 20px;
+}
+
+.slogan {
+    width: auto;
+    padding-bottom: 40px;
+}
+
+.slogan h3 {
+    padding: 20px;
+    font-size: 24px;
+    background-color: #ff6600;
+    text-transform: none;
+    margin: auto;
+    width: 600px;
+    /*border: 1px solid;*/
+    border-radius: 40px;
+}
+
+/*section law*/
+
+.lawItem p {
+    color: #131414;
+}
+
+.lawItem {
+    display: flex;
+    width: 980px;
+    margin: 28px auto 0;
+}
+
+.lawItem_whatIs {
+    border-radius: 10px;
+    padding-top: 20px;
+    background-color: #c5c6c5;
+    text-align: center;
+    width: 22%;
+    height: 100px;
+}
+
+p.law_num {
+    color: #f8843f;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 1em !important;
+}
+
+p.law_date {
+    color: #131414;
+    line-height: 1em !important;
+    font-size: 19px;
+}
+
+.lawItem_desc {
+    margin-left: 22px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 7px;
+    border: 2px solid #8a8a8a;
+}
+
+.lawItem_desc {
+    width: 78%;
+    display: flex;
+    align-items: center;
+}
+
+.lawItem_desc p {
+    font-size: 22px;
+    line-height: 1.2em;
+    padding: 0 28px;
+}
+
+/*end section law*/
+
+/*================================*/
+
+/*start section service*/
+
+.addService {
+    display: flex;
+    flex-wrap: wrap;
+    width: 980px;
+    margin: 20px auto 0;
+}
+
+.addService_item {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 30px 35px;
+    border: 3px solid #8a8a8a;
+    border-radius: 5px;
+    width: 420px;
+    height: 120px;
+}
+
+.addService_item img {
+    height: 90px;
+    margin: 10px;
+}
+
+.addService_item p {
+    font-size: 22px;
+    line-height: 1.1em;
+    padding: 0 10px;
+}
+
+/*end section service*/
+
+/*================================*/
+
+/*start section procedure*/
+
+.procedure {
+    display: flex;
+    justify-content: space-between;
+    width: 980px;
+    margin: 20px auto 0;
+}
+
+.procedure a {
+    line-height: 1.2em;
+    font-size: 18px;
+}
+
+.steps p {
+    color: #131414;
+}
+
+p.step_num {
+    display: block;
+    width: 25px;
+    font-size: 40px;
+    font-weight: bold;
+    /*border: 1px solid;*/
+}
+
+p.step_desc {
+    width: 310px;
+    /*border: 1px solid;*/
+    font-size: 20px;
+}
+
+a.step_item {
+    display: flex;
+    width: 400px;
+    height: 80px;
+    text-align: center;
+    align-items: center;
+    /*border: 3px solid #8a8a8a;*/
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 25px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.active, .active:hover {
+    box-shadow: none !important;
+    background-color: #d08b65;
+    pointer-events: none;
+    cursor: default;
+}
+
+a:hover{
+    text-decoration: none;
+
+    background-color: #d7c7bf;
+}
+
+.proc_desc_area {
+    width: 550px;
+    height: min-content;
+    /*border: 1px solid #8a8a8a;*/
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
+}
+
+.desc_proc {
+    /*display: flex;*/
+    position: relative;
+    margin: 20px;
+}
+
+.num_procedure {
+    font-size: 43px;
+    height: 80px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    line-height: 1em;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.icon_procedure {
+    top: -15px;
+    right: 20px;
+    position: absolute;
+    height: 90px;
+}
+
+.icon_procedure img {
+    height: 90px;
+}
+
+.desc_proc h3 {
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: left;
+}
+
+p.p_procedure {
+    margin-top: 20px;
+    color: #131414;
+    line-height: 1.2em;
+    font-size: 18px;
+}
+
+.desc_proc ol {
+    margin-top: 20px;
+    line-height: 1.2em;
+    font-size: 16px;
+}
+
+.p_title {
+    line-height: 1.1;
+    margin-top: 10px;
+    font-size: 22px;
+    color: #171515;
+    font-weight: bold;
+    text-indent: 0;
+    text-align: center;
+    text-align-last: center;
+
+}
+
+.grey_color {
+    color: #595b5c;
+    margin-top: 20px;
+}
+
+p.font_classic {
+    color: #171515;
+    margin-top: 20px;
+}
+p.font_classic2 {
+     text-align: center;
+     color: #171515;
+     margin-top: 20px;
+ }
+
+.p_note {
+    text-align: center;
+    color: #ffd9c5;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
