@@ -16,6 +16,13 @@ class HomeController extends BaseController
         ]);
     }
 
+    public function works(): string | \PHPFrw\View{
+        return view('works',[
+            'title'=>' :: Готовые работы',
+            'menu' => $this->renderMenu(),
+        ]);
+    }
+
     public function contacts(): string|\PHPFrw\View
     {
         return view('contacts', [

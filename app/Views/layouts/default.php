@@ -81,7 +81,8 @@
                     <i class="fa fa-mobile" aria-hidden="true"></i>
                     <i class="fa fa-whatsapp" aria-hidden="true"></i>
                     <span>
-                        <a href="tel:+79139448850">+7-913-944-8850</a>
+                        <a href="https://wa.me/79139448850?text=Здравствуйте! У меня вопрос" target="_blank">+7-913-944-8850</a>
+<!--                        <a href="whatsapp://send?phone=+79139448850&text=Здравствуйте" target="_blank">+7-913-944-8850</a>-->
                     </span>
                 </div>
             </div>
