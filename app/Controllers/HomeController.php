@@ -8,7 +8,7 @@ class HomeController extends BaseController
 {
     public function index(): string|\PHPFrw\View
     {
-        $lastWorks = db()->query("select * from works order by id desc limit 3")->get();
+        $lastWorks = db()->query("select * from works order by id desc limit 4")->get();
         return view('home', [
             'title'=>' :: Главная',
             'menu' => $this->renderMenu(),
@@ -17,9 +17,13 @@ class HomeController extends BaseController
     }
 
     public function works(): string | \PHPFrw\View{
+        $works = db()->query("select * from works order by id desc limit 10")->get();
+        $categories = db()->query("select * from categories")->get();
         return view('works',[
             'title'=>' :: Готовые работы',
             'menu' => $this->renderMenu(),
+            'works' => $works,
+            'categories' => $categories
         ]);
     }
 
