@@ -26,15 +26,15 @@
                 </a>
                 <a href="#" class="step_item" data-id="6">
                     <p class="step_num">6</p>
-                    <p class="step_desc">Подготовка Подрядчиком альбома паспорта фасадов здания</p>
+                    <p class="step_desc">Подписание паспорта фасадов собственником здания</p>
                 </a>
                 <a href="#" class="step_item" data-id="7">
                     <p class="step_num">7</p>
-                    <p class="step_desc">Подготовка Подрядчиком альбома паспорта фасадов здания</p>
+                    <p class="step_desc">Утверждение и выдача паспорта фасадов</p>
                 </a>
                 <a href="#" class="step_item" data-id="8">
                     <p class="step_num">8</p>
-                    <p class="step_desc">Подготовка Подрядчиком альбома паспорта фасадов здания</p>
+                    <p class="step_desc">Передача согласованного паспорта фасадов Заказчику</p>
                 </a>
             </div>
             <div class="proc_desc_area" id="proc_desc_area">
