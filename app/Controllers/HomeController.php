@@ -8,7 +8,7 @@ class HomeController extends BaseController
 {
     public function index(): string|\PHPFrw\View
     {
-        $lastWorks = db()->query("select * from works order by id desc limit 4")->get();
+        $lastWorks = db()->query("select * from works order by id desc limit 3")->get();
         return view('home', [
             'title'=>' :: Главная',
             'menu' => $this->renderMenu(),
