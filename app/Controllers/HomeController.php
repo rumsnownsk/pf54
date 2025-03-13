@@ -17,7 +17,12 @@ class HomeController extends BaseController
     }
 
     public function works(): string | \PHPFrw\View{
-        $works = db()->query("select * from works order by id desc limit 10")->get();
+        $works = db()
+            ->query("select `id`,`title`,`photoName`,`created_at` from works order by id desc limit 10")
+            ->get();
+        foreach ($works as $k => $v) {
+            $works[$k]['created_at'] = $this->date_ru($v['created_at']);
+        }
         $categories = db()->query("select * from categories")->get();
         return view('works',[
             'title'=>' :: Готовые работы',

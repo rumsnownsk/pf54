@@ -4,6 +4,7 @@
 
 use App\Controllers\HomeController;
 use App\Controllers\UserController;
+use App\Controllers\AjaxController;
 
 const MIDDLEWARE = [
     'auth' => \PHPFrw\Middleware\Auth::class,
@@ -20,6 +21,9 @@ $app->router->get('/service', [HomeController::class, 'service']);
 $app->router->get('/procedure', [HomeController::class, 'procedure']);
 $app->router->get('/ajaxRequest', [HomeController::class, 'ajaxRequest']);
 $app->router->get('/contacts', [HomeController::class, 'contacts']);
+
+$app->router->get('/worksByCategoryId', [AjaxController::class, 'worksById']);
+
 
 $app->router->get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth']);
 

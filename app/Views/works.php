@@ -4,19 +4,26 @@
         <div class="categories" id="categories">
             <?php if (!empty($categories)) : ?>
                 <?php foreach ($categories as $category) : ?>
-                    <a href="#" data-id="<?= $category['id']?>"><?= $category['title']?></a>
+                    <a href="#" data-id="<?= $category['id'] ?>"><?= $category['title'] ?></a>
                 <?php endforeach; endif; ?>
         </div>
 
-        <?php if (!empty($works)) : ?>
-            <?php foreach ($works as $work) : ?>
-                <div class="lastWorks_item">
-                    <img src="/images/works/<?= $work['photoName'] ?>" alt="паспорт фасадов"
-                         class="lastWork_img">
+        <div class="works_area" id="works_area">
+            <div class="listWorks" id="listWorks">
+                <?php if (!empty($works)) : ?>
+                    <?php foreach ($works as $work) : ?>
+                        <div class="work_item">
+                            <img src="/images/works/<?= $work['photoName'] ?>" alt="паспорт фасадов"
+                                 class="lastWork_img">
+                            <p><?= $work['title'] ?></p>
+                            <p>Выдано: <?= $work['created_at'] ?></p>
+                        </div>
+                    <?php endforeach;
+                endif; ?>
 
-                    <p><?= $work['title'] ?>; категория здания - <?= $work['category_id'] ?></p>
-                </div>
-            <?php endforeach; endif; ?>
+            </div>
+        </div>
+
 
     </div>
 </div>

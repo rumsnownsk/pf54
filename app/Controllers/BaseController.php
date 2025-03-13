@@ -19,7 +19,7 @@ class BaseController extends Controller
     public function renderMenu(): string
     {
         return view()->renderPartial('incs/menu',[
-            'categories' => [],
+//            'categories' => [],
         ]);
     }
 
@@ -30,6 +30,31 @@ class BaseController extends Controller
             $id = 1;
         }
         return view()->renderPartial("incs/procedure/step_{$id}");
+    }
+
+    public function renderWorksByCategoryId($works): string
+    {
+        return view()->renderPartial("incs/listWorks", [
+            'works' => $works
+        ]);
+    }
+
+    protected function date_ru($timestamp, $show_time = false): string
+    {
+        if (empty($timestamp)){
+            return '-';
+        } else {
+            $value = explode(' ', date('Y n j H i', $timestamp));
+            $month = array(
+                '', 'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+                'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
+            );
+            $out = $value[2] . ' ' . $month[$value[1]] . ' ' . $value[0];
+            if ($show_time) {
+                $out .= ' в ' . $value[3] . ':' . $value[4];
+            }
+            return $out;
+        }
     }
 
 }
