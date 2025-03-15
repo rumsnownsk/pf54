@@ -42,8 +42,8 @@ $(function () {
         })
     })
 
-    /* подсветка активного пункта на странице Порядок Получения
-    * паспорта фасада */
+    /* ajax-подгрузка контента на странице
+    * Порядок получения паспорта */
     $(document).on('click', '.step_item', function (e) {
         $('a[data-id]').removeClass('active');
         e.preventDefault();
@@ -71,6 +71,44 @@ $(function () {
                 let el = document.querySelector('#desc_proc')
                 el.remove();
                 $('#proc_desc_area').append(res.page_step)
+            },
+            error: function () {
+                console.log('ошибочка');
+            }
+        });
+    })
+
+    /* ajax-подгрузка контента на странице
+    * Готовые паспорта */
+    $(document).on('click', '#categories a', function (e) {
+        $('a[data-id]').removeClass('active');
+        e.preventDefault();
+        // console.log($(this).data('id'))
+        let message = 'ok';
+        let category_id = $(this).data('id') || 1;
+
+        if (!category_id) {
+            console.log('non is category_id')
+            message = 'error with step_id'
+            category_id = 1;
+        }
+        $(this).addClass('active');
+        // $(this).css({'box-shadow': 'none'});
+        // console.log("category_id = "+category_id)
+
+        $.ajax({
+            url: '/worksByCategoryId',
+            type: 'get',
+            dataType: "json",
+            data: {
+                category_id: category_id,
+                message: message
+            },
+            success: function (res) {
+                console.log(res)
+                let el = document.querySelector('#listWorks')
+                el.remove();
+                $('#works_area').append(res.works)
             },
             error: function () {
                 console.log('ошибочка');
