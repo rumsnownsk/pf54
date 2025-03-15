@@ -18,7 +18,7 @@ class HomeController extends BaseController
 
     public function works(): string | \PHPFrw\View{
         $works = db()
-            ->query("select `id`,`title`,`photoName`,`created_at` from works order by id desc limit 10")
+            ->query("select `id`,`title`,`photoName`,`created_at` from works order by id desc")
             ->get();
         foreach ($works as $k => $v) {
             $works[$k]['created_at'] = $this->date_ru($v['created_at']);
