@@ -13,7 +13,8 @@
                 <a href="https://novo-sibirsk.ru/upload/iblock/2d7/Pravila-blagoustroystva-goroda-Novosibirska-ot-27-sentyabrya-2017-g.-N-469-pr2019.pdf"
                    target="_blank"
                    title="Документ откроется в новом окне"
-                   rel="noopener noreferrer">текст документа</a>
+                   rel="noopener noreferrer"
+                   class="law_button">полный текст документа</a>
             </div>
         </div>
         <h2 style="margin-top: 40px;">постановления мэрии города новосибирска</h2>
@@ -28,7 +29,8 @@
                 <a href="https://novo-sibirsk.ru/upload/iblock/63a/2021-647.pdf"
                    target="_blank"
                    title="Документ откроется в новом окне"
-                   rel="noopener noreferrer">текст документа</a>
+                   rel="noopener noreferrer"
+                   class="law_button">полный текст документа</a>
             </div>
         </div>
         <div class="lawItem">
@@ -42,7 +44,8 @@
                 <a href="https://novo-sibirsk.ru/upload/iblock/063/43_2021_.pdf"
                    target="_blank"
                    title="Документ откроется в новом окне"
-                   rel="noopener noreferrer">текст документа</a>
+                   rel="noopener noreferrer"
+                   class="law_button">полный текст документа</a>
             </div>
         </div>
         <div class="lawItem">
@@ -56,7 +59,8 @@
                 <a href="https://novo-sibirsk.ru/upload/building/2019-post-3979.pdf"
                    target="_blank"
                    title="Документ откроется в новом окне"
-                   rel="noopener noreferrer">текст документа</a>
+                   rel="noopener noreferrer"
+                   class="law_button">полный текст документа</a>
             </div>
         </div>
         <div class="lawItem">
@@ -69,7 +73,8 @@
                 <a href="https://nskpravo.info/upload/iblock/150/2023%207437.pdf"
                    target="_blank"
                    title="Документ откроется в новом окне"
-                   rel="noopener noreferrer">текст документа</a>
+                   rel="noopener noreferrer"
+                   class="law_button">полный текст документа</a>
             </div>
         </div>
     </div>
