@@ -440,17 +440,17 @@ p.law_date {
 }
 
 .law_button{
-    padding: 4px 8px;
-    border-radius: 3px;
-    box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+    padding: 4px 22px;
+    border-radius: 8px;
+    /*box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);*/
     line-height: 1em;
     background: #c5c6c5;
     text-decoration: none;
     /*user-select: none;*/
-    color: #000000;
-    font-size: 13px;
+    color: #3b3d5e;
+    font-size: 14px;
     /*letter-spacing: .08em;*/
-    text-transform: uppercase;
+    text-transform: lowercase;
     /*position: relative;*/
     /*transition: background-color .6s ease;*/
     /*overflow: hidden;*/
@@ -727,7 +727,7 @@ p.font_classic {
     align-items: center;
     justify-content: center;
     height: max-content;
-    padding: 15px;
+    padding: 8px;
     background-color: #c9c8c8;
     width: 350px;
     margin: 10px auto;
@@ -740,6 +740,16 @@ p.font_classic {
     line-height: 1em;
     text-indent: 0;
 }
+
+.work_item_title{
+     font-size: 18px;
+ }
+
+.work_item_date{
+    font-size: 15px;
+    line-height: 1em;
+    color: #524942;
+ }
 
 .work_item img{
     width: 100%;
