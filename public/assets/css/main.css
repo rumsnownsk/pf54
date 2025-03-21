@@ -721,6 +721,17 @@ p.font_classic {
     width: 1080px;
 }
 
+a.loadMore{
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 7px;
+    width: fit-content;
+    padding: 5px 20px;
+    color: #FF6600;
+}
+
 .work_item{
     display: flex;
     flex-direction: column;
@@ -728,11 +739,11 @@ p.font_classic {
     justify-content: center;
     height: max-content;
     padding: 8px;
-    background-color: #c9c8c8;
+    background-color: #d2cfcd;
     width: 350px;
     margin: 10px auto;
     text-align: center;
-    /*border: 1px solid black;*/
+    border-radius: 4px;
 }
 
 .work_item p{

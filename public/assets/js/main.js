@@ -78,37 +78,71 @@ $(function () {
         });
     })
 
-    /* ajax-подгрузка контента на странице
-    * Готовые паспорта */
+    /* ajax-загрузка контента
+     в зависимости от Категории
+     на странице Готовые паспорта */
     $(document).on('click', '#categories a', function (e) {
+        $('a#loadMore').prop("hidden", false)
         $('a[data-id]').removeClass('active');
+        countClick = 0
         e.preventDefault();
-        // console.log($(this).data('id'))
         let message = 'ok';
-        let category_id = $(this).data('id') || 1;
+        let catId = $(this).data('id');
 
-        if (!category_id) {
-            console.log('non is category_id')
-            message = 'error with step_id'
-            category_id = 1;
-        }
+        // if (!category_id) {
+        //     console.log('non is category_id')
+        //     message = 'error with step_id'
+        //     category_id = 1;
+        // }
         $(this).addClass('active');
-        // $(this).css({'box-shadow': 'none'});
-        // console.log("category_id = "+category_id)
 
         $.ajax({
-            url: '/worksByCategoryId',
+            url: '/worksByCategoryId?catId='+catId,
             type: 'get',
             dataType: "json",
             data: {
-                category_id: category_id,
+                catId: catId,
                 message: message
             },
             success: function (res) {
-                console.log(res)
-                let el = document.querySelector('#listWorks')
-                el.remove();
-                $('#works_area').append(res.works)
+                $('#listWorks').empty()
+                $('#listWorks').append(res.worksPage)
+            },
+            error: function () {
+                console.log('ошибочка');
+            }
+        });
+    })
+
+    /* ajax-подгрузка ПАГИНАЦИЯ контента на странице
+        "Готовые паспорта"
+        при нажатии кнопки ЗАГРУЗИТЬ ЕЩЁ */
+    let countClick = 0;
+    $(document).on('click', 'a#loadMore', function (e) {
+        e.preventDefault();
+
+        let catId = '';
+        console.log('old catId = '+catId)
+
+        countClick = countClick + 1;
+        catId = $('#categories a.active').data('id');
+        console.log('catId = '+catId)
+        console.log('countClick = '+countClick)
+
+        $.ajax({
+            url: "/loadMore",
+            type: 'get',
+            dataType: "json",
+            data: {
+                countClick: countClick,
+                catId: catId
+            },
+            success: function (res) {
+                if (res.status === false){
+                    $('a#loadMore').prop("hidden", true)
+                }
+                let el = $('#listWorks')
+                el.append(res.worksPage)
             },
             error: function () {
                 console.log('ошибочка');
@@ -116,6 +150,34 @@ $(function () {
         });
     })
 })
+
+/* ajax-загрузка контента
+    при ПЕРВОЙ ЗАГРУЗКЕ страницы
+    "Готовые паспорта" */
+document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+        let message = 'allWorks'
+
+        $.ajax({
+            url: "/allWorks",
+            type: 'get',
+            dataType: "json",
+            data: {
+                message: message,
+            },
+            success: function (res) {
+                console.log('message = '+ res.message)
+                $('#listWorks').append(res.worksPage)
+                $("a#loadMore")
+                    .prop("hidden", false)
+                    .attr("href", $(location).attr('href'))
+            },
+            error: function () {
+                console.log('ошибочка: load all works');
+            }
+        });
+    }, 500); // Delay of 0.5 seconds
+});
 
 
 
