@@ -57,4 +57,13 @@ class BaseController extends Controller
         }
     }
 
+    protected function countWorks($table, $where = '')
+    {
+        if ($where){
+            $where = "where category_id=$where";
+        }
+//        return db()->query("select count (*) from {$table} {$where}")->get();
+        return db()->query("SELECT COUNT(*) count FROM {$table} {$where}")->get()[0]['count'];
+    }
+
 }

@@ -22,7 +22,9 @@ $app->router->get('/procedure', [HomeController::class, 'procedure']);
 $app->router->get('/ajaxRequest', [HomeController::class, 'ajaxRequest']);
 $app->router->get('/contacts', [HomeController::class, 'contacts']);
 
-$app->router->get('/worksByCategoryId', [AjaxController::class, 'worksById']);
+$app->router->get('/allWorks', [AjaxController::class, 'allWorks']);
+$app->router->get('/loadMore', [AjaxController::class, 'loadMore']);
+$app->router->get('/worksByCategoryId', [AjaxController::class, 'worksByCategoryId']);
 
 
 $app->router->get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth']);
