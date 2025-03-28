@@ -12,12 +12,9 @@ const MIDDLEWARE = [
 ];
 
 
-$app->router->get('/', [HomeController::class, 'index']);
 $app->router->get('/law', [HomeController::class, 'law']);
 $app->router->get('/works', [HomeController::class, 'works']);
 $app->router->get('/service', [HomeController::class, 'service']);
-//$app->router->get('/priceService', [HomeController::class, 'priceService']);
-//$app->router->post('/priceCalculate', [HomeController::class, 'priceCalculate']);
 $app->router->get('/procedure', [HomeController::class, 'procedure']);
 $app->router->get('/ajaxRequest', [HomeController::class, 'ajaxRequest']);
 $app->router->get('/contacts', [HomeController::class, 'contacts']);
@@ -36,12 +33,17 @@ $app->router->get('/users', [UserController::class, 'index']);
 $app->router->post('/register', [UserController::class, 'store'])->middleware(['guest']);
 $app->router->get('/login', [UserController::class, 'login'])->middleware(['guest']);
 
-//$app->router->get('/contact/', [\App\Controllers\HomeController::class, 'contact']);
-//$app->router->get('/post/(?P<slug>[a-z0-9-]+)/?', function (){
-//    return '<p>Some post</p>';
-//});
+$app->router->get('/work/(?P<id>[0-9]+)?', function (){
+//    или $app->router->get('/post/(?P<id>[0-9-]+)/?', function (){
+//    (?P) - означает, что это нужно запомнить то, что попадёт внутрь круглых скобок
+//    <slug> - просто название переменной
+//    [] - какие символы могут находиться в переменной slug
+//    [a-z0-9-]  - от a до z, а также любые цифры
+//    + означает, что должен быть хоть один символ
+//    dump(app()->router->route_params['slug']);
+    return '<p>Some post: </p>'.get_route_param('slug').get_route_param('id');
+//    (мультиязычность, часть 1)
+});
 
-
-
-//dump($app->router->getRoutes());
+$app->router->get('/', [HomeController::class, 'index']);
 

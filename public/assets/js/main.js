@@ -1,5 +1,6 @@
 $(function () {
 
+
     /* подсветка активного пункта меню в Навигации */
     let currentUri = location.origin + location.pathname.replace(/\/$/, '');
     $('.menu a').each(function () {
@@ -8,6 +9,21 @@ $(function () {
             $(this).addClass('active')
         }
     })
+
+    let iziModalAlertSuccess = $('.iziModal-alert-success')
+    let iziModalAlertError = $('.iziModal-alert-error')
+
+    iziModalAlertSuccess.iziModal({
+        padding: 20,
+        title: 'Success',
+        headerColor: '#00897b'
+    })
+    iziModalAlertError.iziModal({
+        padding: 20,
+        title: 'Error',
+        headerColor: '#e53935'
+    })
+
 
     /* отправка заявки для рассмотрения стоимости
     * получения Паспорта Фасада */
@@ -22,6 +38,8 @@ $(function () {
         }
 
         let action = form.attr('action') ? form.attr('action') : location.href;
+        console.log('test1 = ' + action)
+
         $.ajax({
             url: action,
             type: method === 'post' ? 'post' : 'get',
@@ -31,7 +49,24 @@ $(function () {
             },
             success: function (res) {
                 console.log('тута из main.js');
+
                 res = JSON.parse(res);
+                if (res.status === 'success'){
+                    iziModalAlertSuccess.iziModal('setContent', res.data)
+                    form.trigger('reset')
+                    iziModalAlertSuccess.iziModal('open')
+                    if (res.redirect){
+                        $(document).on('closed', iziModalAlertSuccess, function (e) {
+                            location = res.redirect
+                        });
+                    }
+                } else {
+                    iziModalAlertError.iziModal('setContent', {
+                        content: res.data,
+                    })
+                    iziModalAlertError.iziModal('open')
+                }
+                btn.prop('disable', false).text(btnText);
 
                 console.log(res);
             },

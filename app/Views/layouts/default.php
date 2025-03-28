@@ -11,6 +11,7 @@
 
         <link type='text/css' rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link type='text/css' rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link type='text/css' rel="stylesheet" href="/assets/css/iziModal.min.css">
     <link type='text/css' rel="stylesheet" href="/assets/css/main.css">
 
     <meta name="description"
@@ -83,21 +84,20 @@
                 </div>
             </div>
         </div>
-        <?= /** @var string $menu */
-        $menu ?>
+        <?php /** @var string $menu */
+        if (isset($menu)): echo $menu; endif; ?>
 
 </header>
 <!---//end_header---->
 
 <?php get_alerts(); ?>
 
-<!---//end_content---->
+<!---content---->
 <section id="content" class="content">
     <?= /** @var string $content */
     $content; ?>
 </section>
-<!---content---->
-
+<!---//end_content---->
 
 
 
@@ -116,8 +116,12 @@
     <?php endforeach; ?>
 <?php endif; ?>
 
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
 <script type="text/javascript" src="<?= base_url('/assets/js/jquery-3.7.1.min.js')?>"></script>
+<script type="text/javascript" src="<?= base_url('/assets/js/bootstrap.min.js')?>"></script>
+<script type="text/javascript" src="<?= base_url('/assets/js/iziModal.min.js')?>"></script>
 <script type="text/javascript" src="<?= base_url('/assets/js/main.js')?>"></script>
+
+<div class="iziModal-alert-success"></div>
+<div class="iziModal-alert-error"></div>
 </body>
 </html>

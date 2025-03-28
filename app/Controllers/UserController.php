@@ -20,7 +20,7 @@ class UserController extends BaseController
         $pagination = new Pagination($users_cnt);
         $users = db()->query("select * from users limit $limit offset {$pagination->getOffset()}")->get();
 
-        return view('user/index',[
+        return view('user/index', [
             'title' => 'all users',
             'users' => $users,
             'pagination' => $pagination,
@@ -62,33 +62,36 @@ class UserController extends BaseController
         $model = new User();
         $model->loadData();
 
-        if (request()->isAjax()){
-            echo json_encode([
-                'status' => 'success',
-                'data' => 'is all gooood. Your Id = ...'
-            ]);
+        if (request()->isAjax()) {
+            if (!$model->validate()) {
+                echo json_encode(['status' => 'error', 'data' => $model->listErrors()]);
+                die;
+            }
+
+            $model->attributes['password'] = password_hash($model->attributes['password'], PASSWORD_DEFAULT);
+            if ($id = $model->save()) {
+                echo json_encode(['status' => 'success', 'data' => 'Thanks for registration. Your ID: ' . $id, 'redirect' => base_url('/login')]);
+            } else {
+                echo json_encode(['status' => 'error', 'data' => 'Error registration']);
+            }
             die;
         }
 
-        if(!$model->validate()){
-            session()->setFlash('error', 'valid error');
+        if (!$model->validate()) {
+            session()->setFlash('error', 'Validation errors');
             session()->set('form_errors', $model->getErrors());
             session()->set('form_data', $model->attributes);
         } else {
-            $model->attributes['password'] = password_hash
-            (
-                $model->attributes['password'],
-                PASSWORD_DEFAULT
-            );
-            if ($id = $model->save()){
-                session()->setFlash('info', 'is all gooood. Your Id = '. $id);
-            } else{
-                session()->setFlash('error', 'error registration');
-            };
-        };
-        responce()->redirect('/register');
-    }
+            $model->attributes['password'] = password_hash($model->attributes['password'], PASSWORD_DEFAULT);
+            if ($id = $model->save()) {
+                session()->setFlash('success', 'Thanks for registration. Your ID: ' . $id);
+            } else {
+                session()->setFlash('error', 'Error registration');
+            }
 
+        }
+        response()->redirect('/register');
+    }
 
 
 }

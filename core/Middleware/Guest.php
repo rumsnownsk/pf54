@@ -7,7 +7,7 @@ class Guest
     public function handle(): void
     {
         if (check_auth()){
-            responce()->redirect(base_url('/dashboard'));
+            response()->redirect(base_url('/dashboard'));
         }
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\NoReturn;
+use JetBrains\PhpStorm\Pure;
 
 function app(): \PHPFrw\Application
 {
@@ -12,7 +13,7 @@ function request(): \PHPFrw\Request
     return app()->request;
 }
 
-function responce(): \PHPFrw\Response
+function response(): \PHPFrw\Response
 {
     return app()->response;
 }
@@ -25,6 +26,31 @@ function session(): \PHPFrw\Session
 function cache(): \PHPFrw\Cache
 {
     return app()->cache;
+}
+
+function router(): \PHPFrw\Router
+{
+    return app()->router;
+}
+
+function get_route_params(): array
+{
+    return router()->getRouteParams();
+}
+
+function get_route_param($key, $default=''): string
+{
+    return router()->getRouteParams()[$key] ?? $default;
+}
+
+function array_value_search($arr, $index, $value): int|string|null
+{
+    foreach ($arr as $k => $v) {
+        if ($v[$index] == $value){
+            return $k;
+        }
+    }
+    return null;
 }
 
 function db(): \PHPFrw\DataBase
@@ -42,7 +68,7 @@ function view($view = '', $data = [], $layout=''): string|\PHPFrw\View
 
 function abort($error = '', $code = 404)
 {
-    responce()->setResponseCode($code);
+    response()->setResponseCode($code);
     echo view("errors/{$code}", ['error' => $error], false);
     die;
 }

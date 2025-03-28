@@ -69,10 +69,13 @@ class Router
         return $this->routes;
     }
 
+    public function getRouteParams(): array
+    {
+        return $this->route_params;
+    }
 
     protected function matchRoute($path): mixed
     {
-
         foreach ($this->routes as $route) {
             if (
                 preg_match("#^{$route['path']}$#", "/{$path}", $matches)
@@ -103,7 +106,6 @@ class Router
                         }
 
                     }
-//                    dd($mw);
                 }
 
                 foreach ($matches as $k => $v) {
