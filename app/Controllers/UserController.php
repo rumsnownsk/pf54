@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\User;
+use PHPFrw\Auth;
 use PHPFrw\Pagination;
 
 class UserController extends BaseController
@@ -32,29 +33,48 @@ class UserController extends BaseController
     {
         return view('user/register', [
             'title' => 'register page',
-
         ]);
-        //return "reg page";
     }
 
     public function login()
     {
+//        $credential = [
+//            'name'=> 'admin1',
+//            'password'=>'admin1'
+//        ];
+//        $password = $credential['password'];
+//        unset($credential['password']);
+//        $field = array_key_first($credential);
+//        $value = $credential[$field];
+//
+//        $user = db()->findOne('users', $value, $field);
+//        dump($user);
 
         return view('user/login', [
             'title' => 'login page',
-            'menu' => $this->renderMenu(),
-            'styles' => [
-                base_url('/assets/css/test.css'),
-            ],
-            'header_scripts' => [
-                base_url('/assets/js/test.js'),
-                base_url('/assets/js/test2.js'),
-            ],
-            'footer_scripts' => [
-                base_url('/assets/js/test.js'),
-                base_url('/assets/js/test3.js'),
-            ]
         ]);
+    }
+
+    public function auth()
+    {
+        $model = new User();
+        $model->loadData();
+
+        if (!$model->validate($model->attributes, [
+            'required'=>['email', 'password']
+        ])){
+            echo json_encode(['status' => 'error', 'data' => $model->listErrors()]);
+            die;
+        }
+        if (Auth::login([
+            'email'=>$model->attributes['email'],
+            'password'=>$model->attributes['password']
+        ])){
+            echo json_encode(['status' => 'success', 'data' => 'success login', 'redirect' => base_url('/')]);
+        } else {
+            echo json_encode(['status' => 'error', 'data' => "wrong email or password"]);
+        }
+        die;
     }
 
     public function store()
@@ -70,26 +90,29 @@ class UserController extends BaseController
 
             $model->attributes['password'] = password_hash($model->attributes['password'], PASSWORD_DEFAULT);
             if ($id = $model->save()) {
-                echo json_encode(['status' => 'success', 'data' => 'Thanks for registration. Your ID: ' . $id, 'redirect' => base_url('/login')]);
+                echo json_encode([
+                    'status' => 'success',
+                    'data' => 'Thanks for registration. Your ID: ' . $id,
+                    'redirect' => base_url('/login')]);
             } else {
                 echo json_encode(['status' => 'error', 'data' => 'Error registration']);
             }
             die;
         }
 
-        if (!$model->validate()) {
-            session()->setFlash('error', 'Validation errors');
-            session()->set('form_errors', $model->getErrors());
-            session()->set('form_data', $model->attributes);
-        } else {
-            $model->attributes['password'] = password_hash($model->attributes['password'], PASSWORD_DEFAULT);
-            if ($id = $model->save()) {
-                session()->setFlash('success', 'Thanks for registration. Your ID: ' . $id);
-            } else {
-                session()->setFlash('error', 'Error registration');
-            }
-
-        }
+//        if (!$model->validate()) {
+//            session()->setFlash('error', 'Validation errors');
+//            session()->set('form_errors', $model->getErrors());
+//            session()->set('form_data', $model->attributes);
+//        } else {
+//            $model->attributes['password'] = password_hash($model->attributes['password'], PASSWORD_DEFAULT);
+//            if ($id = $model->save()) {
+//                session()->setFlash('success', 'Thanks for registration. Your ID: ' . $id);
+//            } else {
+//                session()->setFlash('error', 'Error registration');
+//            }
+//
+//        }
         response()->redirect('/register');
     }
 

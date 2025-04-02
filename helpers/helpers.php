@@ -135,5 +135,10 @@ function get_csrf_meta(): string
 
 function check_auth(): bool
 {
-    return false;
+    return \PHPFrw\Auth::isAuth();
+}
+
+function getUser()
+{
+    return \PHPFrw\Auth::user();
 }

@@ -38,7 +38,6 @@ $(function () {
         }
 
         let action = form.attr('action') ? form.attr('action') : location.href;
-        console.log('test1 = ' + action)
 
         $.ajax({
             url: action,
@@ -48,8 +47,6 @@ $(function () {
                 btn.prop('disable', true).text('Отправляю...');
             },
             success: function (res) {
-                console.log('тута из main.js');
-
                 res = JSON.parse(res);
                 if (res.status === 'success'){
                     iziModalAlertSuccess.iziModal('setContent', res.data)
@@ -67,11 +64,9 @@ $(function () {
                     iziModalAlertError.iziModal('open')
                 }
                 btn.prop('disable', false).text(btnText);
-
-                console.log(res);
             },
             error: function () {
-                alert('ajax error');
+                alert('server error');
                 btn.prop('disable', false).text(btnText);
             }
         })
@@ -191,26 +186,27 @@ $(function () {
     "Готовые паспорта" */
 document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () {
-        let message = 'allWorks'
-
-        $.ajax({
-            url: "/allWorks",
-            type: 'get',
-            dataType: "json",
-            data: {
-                message: message,
-            },
-            success: function (res) {
-                console.log('message = '+ res.message)
-                $('#listWorks').append(res.worksPage)
-                $("a#loadMore")
-                    .prop("hidden", false)
-                    .attr("href", $(location).attr('href'))
-            },
-            error: function () {
-                console.log('ошибочка: load all works');
-            }
-        });
+        if (location.pathname === '/works'){
+            let message = 'allWorks'
+            $.ajax({
+                url: "/allWorks",
+                type: 'get',
+                dataType: "json",
+                data: {
+                    message: message,
+                },
+                success: function (res) {
+                    console.log('message = '+ res.message)
+                    $('#listWorks').append(res.worksPage)
+                    $("a#loadMore")
+                        .prop("hidden", false)
+                        .attr("href", $(location).attr('href'))
+                },
+                error: function () {
+                    console.log('ошибочка: load all works');
+                }
+            });
+        }
     }, 500); // Delay of 0.5 seconds
 });
 

@@ -6,13 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?= get_csrf_meta(); ?>
-    <link rel="icon" href="/images/favicon.ico">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="icon" href="<?= base_url('/images/favicon.ico') ?>">
 
-        <link type='text/css' rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link type='text/css' rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link type='text/css' rel="stylesheet" href="/assets/css/iziModal.min.css">
-    <link type='text/css' rel="stylesheet" href="/assets/css/main.css">
+    <link type='text/css' rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/bootstrap/css/bootstrap.min.css') ?>">
+    <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/iziModal/css/iziModal.min.css') ?>">
+    <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/css/main.css') ?>">
 
     <meta name="description"
           content="Разработка согласование и получение паспортов фасадов зданий в Новосибирске и других городах">
@@ -30,22 +29,24 @@
           rel="stylesheet">
 
 
-    <?php if (!empty($styles)) : ?>
-        <?php foreach ($styles as $style) : ?>
-            <link rel="stylesheet" href="<?= $style; ?>">
-        <?php endforeach; ?>
-    <?php endif; ?>
-
-    <?php if (!empty($header_scripts)) : ?>
-        <?php foreach ($header_scripts as $header_script) : ?>
-            <script src="<?= $header_script ?>"></script>
-        <?php endforeach; ?>
-    <?php endif; ?>
+<!--    --><?php //if (!empty($styles)) : ?>
+<!--        --><?php //foreach ($styles as $style) : ?>
+<!--            <link rel="stylesheet" href="--><?//= $style; ?><!--">-->
+<!--        --><?php //endforeach; ?>
+<!--    --><?php //endif; ?>
+<!---->
+<!--    --><?php //if (!empty($header_scripts)) : ?>
+<!--        --><?php //foreach ($header_scripts as $header_script) : ?>
+<!--            <script src="--><?//= $header_script ?><!--"></script>-->
+<!--        --><?php //endforeach; ?>
+<!--    --><?php //endif; ?>
 
 
 </head>
 <body>
-
+<?php
+dump(['$_SESSION'=>$_SESSION]);
+?>
 <!---header---->
 <div class="row">
     <?php if (isset($auth)) $this->insert('inc/adminButton', [
@@ -90,6 +91,12 @@
 </header>
 <!---//end_header---->
 
+<?php
+dump(\PHPFrw\Auth::isAuth());
+dump(\PHPFrw\Auth::user());
+dump($_SESSION);
+?>
+
 <?php get_alerts(); ?>
 
 <!---content---->
@@ -110,15 +117,15 @@
 <!---//end_footer---->
 
 
-<?php if (!empty($footer_scripts)) : ?>
-    <?php foreach ($footer_scripts as $footer_script) : ?>
-        <script src="<?= $footer_script ?>"></script>
-    <?php endforeach; ?>
-<?php endif; ?>
+<?php //if (!empty($footer_scripts)) : ?>
+<!--    --><?php //foreach ($footer_scripts as $footer_script) : ?>
+<!--        <script src="--><?//= $footer_script ?><!--"></script>-->
+<!--    --><?php //endforeach; ?>
+<?php //endif; ?>
 
 <script type="text/javascript" src="<?= base_url('/assets/js/jquery-3.7.1.min.js')?>"></script>
-<script type="text/javascript" src="<?= base_url('/assets/js/bootstrap.min.js')?>"></script>
-<script type="text/javascript" src="<?= base_url('/assets/js/iziModal.min.js')?>"></script>
+<script type="text/javascript" src="<?= base_url('/assets/bootstrap/js/bootstrap.min.js')?>"></script>
+<script type="text/javascript" src="<?= base_url('/assets/iziModal/js/iziModal.min.js')?>"></script>
 <script type="text/javascript" src="<?= base_url('/assets/js/main.js')?>"></script>
 
 <div class="iziModal-alert-success"></div>

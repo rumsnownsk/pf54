@@ -35,6 +35,7 @@ class Application
         $this->generatedCsrfToken();
 //        $this->setDbConnection();
         $this->db = new DataBase();
+        Auth::setUser();
     }
 
     public function run(): void // void - ничего не возвращаем

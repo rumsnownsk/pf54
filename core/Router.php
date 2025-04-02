@@ -92,7 +92,7 @@ class Router
                             die;
                         } else {
                             //session()->setFlash('error', 'Ошибка безопасности');
-                            //responce()->redirect();
+                            //response()->redirect();
                             abort('Page expired', 419);
                         }
                     }

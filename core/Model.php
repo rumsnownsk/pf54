@@ -86,11 +86,11 @@ abstract class Model
         }, 'Everything you do is wrong. You fail.');
 
         Validator::langDir(WWW.'/lang');
-        Validator::lang('ru');
+        Validator::lang('en');
         $v = new Validator($data);
             //dd($this->attributes);
         $v->rules($rules);
-        $v->labels($labels);
+//        $v->labels($labels);
         if ($v->validate()){
             return true;
         } else {
@@ -109,7 +109,7 @@ abstract class Model
         $output = '<ul class="list-unstyled">';
         foreach ($this->errors as $field_errors) {
             foreach ($field_errors as $error) {
-                $output .= "<li>.$error.</li>";
+                $output .= "<li>{$error}</li>";
             }
         }
         $output .= "</ul>";
