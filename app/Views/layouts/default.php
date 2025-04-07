@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="RU-ru">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -45,14 +45,14 @@
 </head>
 <body>
 <?php
-dump(['$_SESSION'=>$_SESSION]);
+dump([
+    '$_SESSION[csrf_token]' => $_SESSION['csrf_token'],
+    'авторизован?' => \PHPFrw\Auth::isAuth(),
+    'юзер'=>\PHPFrw\Auth::user()
+]);
+dump($_SESSION)
 ?>
 <!---header---->
-<div class="row">
-    <?php if (isset($auth)) $this->insert('inc/adminButton', [
-        'auth' => $auth
-    ]) ?>
-</div>
 <header id="header" class="header">
     <div class="container">
         <div class="headerLine">
@@ -90,12 +90,6 @@ dump(['$_SESSION'=>$_SESSION]);
 
 </header>
 <!---//end_header---->
-
-<?php
-dump(\PHPFrw\Auth::isAuth());
-dump(\PHPFrw\Auth::user());
-dump($_SESSION);
-?>
 
 <?php get_alerts(); ?>
 

@@ -66,16 +66,22 @@ class DataBase
         return $this->stmt->fetchAll();
     }
 
-    public function findOne($tbl, $value, $key='id')
+    public function findOne($tbl, $value, $field='id')
     {
-        $this->query("select * from {$tbl} where $key = ? LIMIT 1", [$value]);
+        $this->query("select * from {$tbl} where $field = ? LIMIT 1", [$value]);
         return $this->stmt->fetch();
     }
 
-    public function findOrFail($tbl, $value, $key = 'id')
+    public function findOrFail($tbl, $value, $field = 'id')
     {
-        $res = $this->findOne($tbl, $value, $key);
+        $res = $this->findOne($tbl, $value, $field);
         if(!$res){
+            if ($_SERVER['HTTP_ACCEPT'] == 'application/json'){
+                response()->json([
+                    'status'=>'error',
+                    'answer'=>'not found'
+                ], 404);
+            }
             abort();
         }
         return $res;

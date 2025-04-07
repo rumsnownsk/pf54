@@ -1,5 +1,5 @@
 /*
-* iziModal | v1.6.1
+* iziModal | V1.6.1
 * https://izimodal.marcelodolza.com
 * by Marcelo Dolza.
 */

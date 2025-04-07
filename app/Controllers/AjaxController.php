@@ -3,9 +3,6 @@
 
 namespace App\Controllers;
 
-
-use JetBrains\PhpStorm\NoReturn;
-
 class AjaxController extends BaseController
 {
     //TODO чтобы не запрашивать Все работы при любой странице сайта

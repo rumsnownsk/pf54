@@ -6,4 +6,5 @@
 <!--    <li class="menu__item"><a href="--><?//= base_url('/priceService') ?><!--">рассчитать стоимость и сроки</a></li>-->
     <li class="menu__item"><a href="<?= base_url('/service') ?>">дополнительные услуги</a></li>
     <li class="menu__item"><a href="<?= base_url('/contacts') ?>">контакты</a></li>
+    <li class="menu__item"><a href="<?= base_url('/admin') ?>">admin</a></li>
 </ul>

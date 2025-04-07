@@ -5,11 +5,26 @@
 use App\Controllers\HomeController;
 use App\Controllers\UserController;
 use App\Controllers\AjaxController;
+//use App\Controllers\Api\V1\CategoryController;
 
 const MIDDLEWARE = [
     'auth' => \PHPFrw\Middleware\Auth::class,
     'guest' => \PHPFrw\Middleware\Guest::class,
 ];
+
+$app->router->get('/admin', [\App\Controllers\AdminController::class, 'index']);
+$app->router->get('/admin/item', [\App\Controllers\AdminController::class, 'item']);
+$app->router->get('/admin/edit', [\App\Controllers\AdminController::class, 'edit']);
+
+$app->router->add('/api/v1/test', function (){
+    response()->json([
+        'status'=> 'success',
+        'message'=>'good page'
+    ]);
+}, ['get', 'post', 'put'])->withoutCsrfToken();
+
+$app->router->get('/api/v1/categories', [App\Controllers\Api\V1\CategoryController::class, 'index']);
+$app->router->get('/api/v1/category/(?P<slug>[a-z0-9-]+)', [App\Controllers\Api\V1\CategoryController::class, 'view']);
 
 
 $app->router->get('/law', [HomeController::class, 'law']);
@@ -30,6 +45,7 @@ $app->router->get('/register', [UserController::class, 'register'])->middleware(
 $app->router->post('/register', [UserController::class, 'store'])->middleware(['guest']);
 $app->router->get('/login', [UserController::class, 'login'])->middleware(['guest']);
 $app->router->post('/login', [UserController::class, 'auth'])->middleware(['guest']);
+$app->router->get('/logout', [UserController::class, 'logout']);
 
 $app->router->get('/users', [UserController::class, 'index']);
 

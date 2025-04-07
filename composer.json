@@ -5,7 +5,8 @@
         "psr-4": {
             "PHPFrw\\": "core/",
             "App\\Controllers\\": "app/Controllers",
-            "App\\Models\\": "app/Models"
+            "App\\Models\\": "app/Models",
+            "App\\Controllers\\Api\\V1\\": "app/Controllers/Api/V1"
         }
     },
     "authors": [

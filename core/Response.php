@@ -22,4 +22,13 @@ class Response
         die;
     }
 
+    public function json($data, $code = 200): void
+    {
+        http_response_code($code);
+        header("Content-type: application/json; charset=UTF-8");
+        echo json_encode($data);
+        exit();
+    }
+
+
 }

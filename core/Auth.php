@@ -15,7 +15,7 @@ class Auth
 
         $user = db()->findOne('users', $value, $field);
 
-        if (!$user){
+        if (!$user || $user['role'] == 0){
             return false;
         }
 
@@ -23,7 +23,8 @@ class Auth
             session()->set('user', [
                 'id'=>$user['id'],
                 'name'=>$user['name'],
-                'email'=>$user['email']
+                'email'=>$user['email'],
+                'role'=>$user['role']
             ]);
             return true;
         }
@@ -40,6 +41,11 @@ class Auth
         return session()->has('user');
     }
 
+    public static function getRole(): int
+    {
+        return self::user()['role'];
+    }
+
     public static function logout(): void
     {
         session()->remove('user');
@@ -53,7 +59,8 @@ class Auth
                 session()->set('user', [
                     'id'=>$user['id'],
                     'name'=>$user['name'],
-                    'email'=>$user['email']
+                    'email'=>$user['email'],
+                    'role'=>$user['role']
                 ]);
             }
         }

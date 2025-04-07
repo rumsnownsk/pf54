@@ -70,9 +70,9 @@ class UserController extends BaseController
             'email'=>$model->attributes['email'],
             'password'=>$model->attributes['password']
         ])){
-            echo json_encode(['status' => 'success', 'data' => 'success login', 'redirect' => base_url('/')]);
+            echo json_encode(['status' => 'success', 'data' => 'success login', 'redirect' => base_url('/admin')]);
         } else {
-            echo json_encode(['status' => 'error', 'data' => "wrong email or password"]);
+            echo json_encode(['status' => 'error', 'data' => "Ошибка email или password. Или аккаунт не одобрен"]);
         }
         die;
     }
@@ -116,5 +116,8 @@ class UserController extends BaseController
         response()->redirect('/register');
     }
 
-
+    public function logout(){
+        unset($_SESSION['user']);
+        response()->redirect(base_url('/'));
+    }
 }
