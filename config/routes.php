@@ -13,8 +13,12 @@ const MIDDLEWARE = [
 ];
 
 $app->router->get('/admin', [\App\Controllers\AdminController::class, 'index']);
-$app->router->get('/admin/item', [\App\Controllers\AdminController::class, 'item']);
-$app->router->get('/admin/edit', [\App\Controllers\AdminController::class, 'edit']);
+$app->router->get('/admin/resetId', [\App\Controllers\AdminController::class, 'resetId']);
+$app->router->get("/admin/build/create", [\App\Controllers\AdminController::class, 'create']);
+$app->router->post("/admin/build/create", [\App\Controllers\AdminController::class, 'create']);
+$app->router->get("/admin/build/(?P<id>[0-9]+)", [\App\Controllers\AdminController::class, 'build']);
+$app->router->post("/admin/build/(?P<id>[0-9]+)", [\App\Controllers\AdminController::class, 'store']);
+$app->router->get("/admin/build/(?P<id>[0-9]+)/remove", [\App\Controllers\AdminController::class, 'remove']);
 
 $app->router->add('/api/v1/test', function (){
     response()->json([

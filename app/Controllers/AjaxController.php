@@ -24,15 +24,15 @@ class AjaxController extends BaseController
         };
 
         $works = db()
-            ->query("select `id`,`title`,`photoName`,`created_at`,`category_id`
+            ->query("select `id`,`title`,`photoName`,`timeCreate`,`category_id`
                             from works
                             {$where}
-                            order by created_at                        
+                            order by timeCreate                        
                             DESC
                             {$limit}")
             ->get();
         foreach ($works as $k => $v) {
-            $works[$k]['created_at'] = $this->date_ru($v['created_at']);
+            $works[$k]['timeCreate'] = $this->date_ru($v['timeCreate']);
         }
 
         if (request()->isAjax()) {
@@ -66,15 +66,15 @@ class AjaxController extends BaseController
         };
 
         $works = db()
-            ->query("select `id`,`title`,`photoName`,`created_at`,`category_id`
+            ->query("select `id`,`title`,`photoName`,`timeCreate`,`category_id`
                             from works
                             {$where}
-                            order by created_at                        
+                            order by timeCreate                        
                             DESC
                             {$limit}")
             ->get();
         foreach ($works as $k => $v) {
-            $works[$k]['created_at'] = $this->date_ru($v['created_at']);
+            $works[$k]['timeCreate'] = $this->date_ru($v['timeCreate']);
         }
 
         empty($works) ? $status = false : $status = true;
@@ -112,15 +112,15 @@ class AjaxController extends BaseController
         };
 
         $works = db()
-            ->query("select `id`,`title`,`photoName`,`created_at`,`category_id`
+            ->query("select `id`,`title`,`photoName`,`timeCreate`,`category_id`
                             from works
                             {$where}
-                            order by created_at                        
+                            order by timeCreate                        
                             DESC
                             {$limit}")
             ->get();
         foreach ($works as $k => $v) {
-            $works[$k]['created_at'] = $this->date_ru($v['created_at']);
+            $works[$k]['timeCreate'] = $this->date_ru($v['timeCreate']);
         }
 
         if (request()->isAjax()) {

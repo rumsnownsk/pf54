@@ -142,3 +142,16 @@ function getUser()
 {
     return \PHPFrw\Auth::user();
 }
+
+function formOldCheckbox($publish='')
+{
+    return $publish ? 'checked="checked"' : '';
+}
+
+function formOldSelect($category_id, $work='')
+{
+    if ($work){
+        return $category_id == $work['category_id'] ? 'selected' : '';
+    }
+    return '';
+}

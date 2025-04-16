@@ -31,26 +31,24 @@ dump([
 ]);
 ?>
 <!---header---->
-<div class="row">
-    <?php if (isset($auth)) $this->insert('inc/adminButton', [
-        'auth' => $auth
-    ]) ?>
 </div>
 <header id="header" class="header">
     <div class="container">
         <div class="headerLine">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Navbar</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                    <div class="navbar-brand">Админка</div>
+
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            <a class="nav-link" href="#">Features</a>
-                            <a class="nav-link" href="<?= base_url('/logout')?>">logout</a>
+                            <a class="nav-link active" aria-current="page" href="<?= base_url('/')?>">Главная</a>
+                            <a class="nav-link" href="<?= base_url('/admin')?>">Весь список</a>
+                            <a class="nav-link" href="<?= base_url('/admin/build/create')?>">Создать</a>
                         </div>
+                    </div>
+                    <div class="navbar-expand admin_menu_right">
+                        <a class="a_logout" href="<?= base_url('/admin/logout')?>">logout</a>
+                        <a class="a_resetId" href="<?= base_url('/admin/resetId')?>">resetId</a>
                     </div>
                 </div>
             </nav>

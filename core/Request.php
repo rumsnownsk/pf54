@@ -10,10 +10,19 @@ class Request
 
     public string $rawUri;
 
+    public array $post;
+    public array $get;
+    public array $files;
+
     public function __construct($uri)
     {
         $this->rawUri = $uri;
         $this->uri = trim(urldecode($uri), '/');
+
+        $this->post = $_POST;
+        $this->get = $_GET;
+        $this->files = $_FILES;
+
     }
 
     public function getMethod(): string
@@ -39,12 +48,17 @@ class Request
 
     public function get($name, $default = null): ?string
     {
-        return $_GET[$name] ?? $default;
+        return $this->get[$name] ?? $default;
     }
 
     public function post($name, $default = null): ?string
     {
-        return $_POST[$name] ?? $default;
+        return $this->post[$name] ?? $default;
+    }
+
+    public function isFileUploaded(): bool
+    {
+        return array_values($_FILES)[0]['size'] > 0;
     }
 
     public function getPath(): string

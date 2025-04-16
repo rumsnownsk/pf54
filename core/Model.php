@@ -8,8 +8,7 @@ use Valitron\Validator;
 abstract class Model
 {
     protected string $table;
-    public bool $timestamps = true;
-
+    public bool $timestamps = false;
 
     protected array $loaded = [];
     /**
@@ -49,6 +48,17 @@ abstract class Model
         $query = "insert into {$this->table} ($fields) values ($placeholders)";
         db()->query($query, $attributes);
         return db()->getInsertId();
+    }
+
+    public function update($table, $id)
+    {
+        $keyValue = "";
+        foreach ($this->attributes as $k => $v) {
+            $keyValue .= "`$k` = '$v',";
+        }
+        $keyValue = rtrim($keyValue,',');
+
+        db()->query("UPDATE {$table} SET {$keyValue} where id = {$id}");
     }
 
     public function loadData(): void
