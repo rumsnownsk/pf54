@@ -8,6 +8,7 @@ class Session
 {
     public function __construct()
     {
+        session_set_cookie_params(10800);
         session_start();
     }
 

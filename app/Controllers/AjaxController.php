@@ -3,11 +3,9 @@
 
 namespace App\Controllers;
 
-
-use JetBrains\PhpStorm\NoReturn;
-
 class AjaxController extends BaseController
 {
+    //TODO чтобы не запрашивать Все работы при любой странице сайта
     public function allWorks()
     {
         $where = "";
@@ -22,19 +20,19 @@ class AjaxController extends BaseController
         }
 
         if (!empty($catId)){
-            $where = "where category_id = ".$catId;
+            $where = "where category_id = {$catId} and publish = 1";
         };
 
         $works = db()
-            ->query("select `id`,`title`,`photoName`,`created_at`,`category_id`
+            ->query("select `id`,`title`,`photoName`,`timeCreate`,`category_id`
                             from works
                             {$where}
-                            order by created_at                        
+                            order by timeCreate                        
                             DESC
                             {$limit}")
             ->get();
         foreach ($works as $k => $v) {
-            $works[$k]['created_at'] = $this->date_ru($v['created_at']);
+            $works[$k]['timeCreate'] = $this->date_ru($v['timeCreate']);
         }
 
         if (request()->isAjax()) {
@@ -64,24 +62,22 @@ class AjaxController extends BaseController
         }
 
         if (!empty($catId)){
-            $where = "where category_id = ".$catId;
+            $where .= "where category_id = {$catId} and publish = 1";
         };
 
         $works = db()
-            ->query("select `id`,`title`,`photoName`,`created_at`,`category_id`
+            ->query("select `id`,`title`,`photoName`,`timeCreate`,`category_id`
                             from works
                             {$where}
-                            order by created_at                        
+                            order by timeCreate                        
                             DESC
                             {$limit}")
             ->get();
         foreach ($works as $k => $v) {
-            $works[$k]['created_at'] = $this->date_ru($v['created_at']);
+            $works[$k]['timeCreate'] = $this->date_ru($v['timeCreate']);
         }
 
         empty($works) ? $status = false : $status = true;
-
-//        $countWorks = $this->countWorks('works', $catId);
 
         if (request()->isAjax()) {
             echo json_encode([
@@ -110,19 +106,19 @@ class AjaxController extends BaseController
         }
 
         if (!empty($catId)){
-            $where = "where category_id = ".$catId;
+            $where = "where category_id =  {$catId} and publish = 1";
         };
 
         $works = db()
-            ->query("select `id`,`title`,`photoName`,`created_at`,`category_id`
+            ->query("select `id`,`title`,`photoName`,`timeCreate`,`category_id`
                             from works
                             {$where}
-                            order by created_at                        
+                            order by timeCreate                        
                             DESC
                             {$limit}")
             ->get();
         foreach ($works as $k => $v) {
-            $works[$k]['created_at'] = $this->date_ru($v['created_at']);
+            $works[$k]['timeCreate'] = $this->date_ru($v['timeCreate']);
         }
 
         if (request()->isAjax()) {

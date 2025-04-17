@@ -6,9 +6,9 @@ class Auth
 {
     public function handle(): void
     {
-        if (!check_auth()){
+        if (check_auth()){
             session()->setFlash('error', 'нужно зарегаться');
-            responce()->redirect(base_url('/login'));
+            response()->redirect(base_url('/login'));
         }
     }
 }

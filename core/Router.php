@@ -48,6 +48,11 @@ class Router
         return $this->add($path, $callback, 'POST');
     }
 
+    public function put($path, $callback):self
+    {
+        return $this->add($path, $callback, 'PUT');
+    }
+
     public function dispatch(): mixed
     {
         $path = $this->request->getPath();
@@ -69,27 +74,37 @@ class Router
         return $this->routes;
     }
 
+    public function getRouteParams(): array
+    {
+        return $this->route_params;
+    }
 
     protected function matchRoute($path): mixed
     {
-
+        $allowed_methods = [];
         foreach ($this->routes as $route) {
-            if (
-                preg_match("#^{$route['path']}$#", "/{$path}", $matches)
-                &&
-                in_array($this->request->getMethod(), $route['method'])
-            ) {
+            if (preg_match("#^{$route['path']}$#", "/{$path}", $matches)) {
+
+                if (!in_array($this->request->getMethod(), $route['method'])){
+                    $allowed_methods = array_merge($allowed_methods, $route['method']);
+                    continue;
+                }
+
+                foreach ($matches as $k => $v) {
+                    if (is_string($k)) {
+                        $this->route_params[$k] = $v;
+                    }
+                }
+
                 if (request()->isPost()){
                     if ($route['needCsrfToken'] && !$this->checkCsrfToken()) {
                         if (request()->isAjax()) {
                             echo json_encode([
                                 'status' => 'error',
-                                'data' => 'security error'
+                                'data' => 'security error (need csrf-token)'
                             ]);
                             die;
                         } else {
-                            //session()->setFlash('error', 'Ошибка безопасности');
-                            //responce()->redirect();
                             abort('Page expired', 419);
                         }
                     }
@@ -103,16 +118,20 @@ class Router
                         }
 
                     }
-//                    dd($mw);
-                }
-
-                foreach ($matches as $k => $v) {
-                    if (is_string($k)) {
-                        $this->route_params[$k] = $v;
-                    }
                 }
                 return $route;
             }
+        }
+
+        if ($allowed_methods){
+            header("Allow: ".implode(', ', array_unique($allowed_methods)));
+            if ($_SERVER['HTTP_ACCEPT'] == 'application/json'){
+                response()->json([
+                    'status' => 'error',
+                    'answer' => 'method not allowed'
+                ], 405);
+            }
+            abort('Method Not Allowed', 405);
         }
         return false;
     }

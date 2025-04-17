@@ -1,5 +1,6 @@
 $(function () {
 
+
     /* подсветка активного пункта меню в Навигации */
     let currentUri = location.origin + location.pathname.replace(/\/$/, '');
     $('.menu a').each(function () {
@@ -8,6 +9,21 @@ $(function () {
             $(this).addClass('active')
         }
     })
+
+    let iziModalAlertSuccess = $('.iziModal-alert-success')
+    let iziModalAlertError = $('.iziModal-alert-error')
+
+    iziModalAlertSuccess.iziModal({
+        padding: 20,
+        title: 'Success',
+        headerColor: '#00897b'
+    })
+    iziModalAlertError.iziModal({
+        padding: 20,
+        title: 'Error',
+        headerColor: '#e53935'
+    })
+
 
     /* отправка заявки для рассмотрения стоимости
     * получения Паспорта Фасада */
@@ -22,6 +38,7 @@ $(function () {
         }
 
         let action = form.attr('action') ? form.attr('action') : location.href;
+
         $.ajax({
             url: action,
             type: method === 'post' ? 'post' : 'get',
@@ -30,13 +47,26 @@ $(function () {
                 btn.prop('disable', true).text('Отправляю...');
             },
             success: function (res) {
-                console.log('тута из main.js');
                 res = JSON.parse(res);
-
-                console.log(res);
+                if (res.status === 'success'){
+                    iziModalAlertSuccess.iziModal('setContent', res.data)
+                    form.trigger('reset')
+                    iziModalAlertSuccess.iziModal('open')
+                    if (res.redirect){
+                        $(document).on('closed', iziModalAlertSuccess, function (e) {
+                            location = res.redirect
+                        });
+                    }
+                } else {
+                    iziModalAlertError.iziModal('setContent', {
+                        content: res.data,
+                    })
+                    iziModalAlertError.iziModal('open')
+                }
+                btn.prop('disable', false).text(btnText);
             },
             error: function () {
-                alert('ajax error');
+                alert('server error');
                 btn.prop('disable', false).text(btnText);
             }
         })
@@ -156,26 +186,27 @@ $(function () {
     "Готовые паспорта" */
 document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () {
-        let message = 'allWorks'
-
-        $.ajax({
-            url: "/allWorks",
-            type: 'get',
-            dataType: "json",
-            data: {
-                message: message,
-            },
-            success: function (res) {
-                console.log('message = '+ res.message)
-                $('#listWorks').append(res.worksPage)
-                $("a#loadMore")
-                    .prop("hidden", false)
-                    .attr("href", $(location).attr('href'))
-            },
-            error: function () {
-                console.log('ошибочка: load all works');
-            }
-        });
+        if (location.pathname === '/works'){
+            let message = 'allWorks'
+            $.ajax({
+                url: "/allWorks",
+                type: 'get',
+                dataType: "json",
+                data: {
+                    message: message,
+                },
+                success: function (res) {
+                    console.log('message = '+ res.message)
+                    $('#listWorks').append(res.worksPage)
+                    $("a#loadMore")
+                        .prop("hidden", false)
+                        .attr("href", $(location).attr('href'))
+                },
+                error: function () {
+                    console.log('ошибочка: load all works');
+                }
+            });
+        }
     }, 500); // Delay of 0.5 seconds
 });
 

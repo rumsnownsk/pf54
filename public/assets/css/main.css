@@ -151,6 +151,11 @@ a {
     background-color: #d7c7bf;
 }
 
+.admin_button{
+    background-color: darkorange;
+    height: 40px !important;
+}
+
 .active {
     background-color: #d08b65;
 }

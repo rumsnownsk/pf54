@@ -8,19 +8,10 @@ use PHPFrw\Controller;
 
 class BaseController extends Controller
 {
-    public function __construct()
-    {
-        $this->renderMenu();
-//        if (!$menu = cache()->get('menu')){
-//            cache()->set('menu', $this->renderMenu());
-//        }
-    }
 
     public function renderMenu(): string
     {
-        return view()->renderPartial('incs/menu',[
-//            'categories' => [],
-        ]);
+        return view()->renderPartial('incs/menu');
     }
 
     public function renderProcedure(): string
@@ -64,6 +55,14 @@ class BaseController extends Controller
         }
 //        return db()->query("select count (*) from {$table} {$where}")->get();
         return db()->query("SELECT COUNT(*) count FROM {$table} {$where}")->get()[0]['count'];
+    }
+
+    /**
+     * @param string $layout
+     */
+    protected function changeLayout($layout='default')
+    {
+        app()->view->layout=$layout;
     }
 
 }

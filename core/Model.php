@@ -8,8 +8,7 @@ use Valitron\Validator;
 abstract class Model
 {
     protected string $table;
-    public bool $timestamps = true;
-
+    public bool $timestamps = false;
 
     protected array $loaded = [];
     /**
@@ -51,6 +50,17 @@ abstract class Model
         return db()->getInsertId();
     }
 
+    public function update($table, $id)
+    {
+        $keyValue = "";
+        foreach ($this->attributes as $k => $v) {
+            $keyValue .= "`$k` = '$v',";
+        }
+        $keyValue = rtrim($keyValue,',');
+
+        db()->query("UPDATE {$table} SET {$keyValue} where id = {$id}");
+    }
+
     public function loadData(): void
     {
         $data = request()->getData();
@@ -86,11 +96,11 @@ abstract class Model
         }, 'Everything you do is wrong. You fail.');
 
         Validator::langDir(WWW.'/lang');
-        Validator::lang('ru');
+        Validator::lang('en');
         $v = new Validator($data);
             //dd($this->attributes);
         $v->rules($rules);
-        $v->labels($labels);
+//        $v->labels($labels);
         if ($v->validate()){
             return true;
         } else {
@@ -109,7 +119,7 @@ abstract class Model
         $output = '<ul class="list-unstyled">';
         foreach ($this->errors as $field_errors) {
             foreach ($field_errors as $error) {
-                $output .= "<li>.$error.</li>";
+                $output .= "<li>{$error}</li>";
             }
         }
         $output .= "</ul>";
