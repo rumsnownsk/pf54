@@ -67,12 +67,6 @@ class HomeController extends BaseController
 
     public function priceCalculate()
     {
-//        var_dump($_SERVER['HTTP_X_REQUEST_WITH']);
-//        echo json_encode([
-//            'status' => 'dsfsfdfs',
-//            'data' => $_SERVER
-//        ]);
-//        die;
         $model = new Order();
         $model->loadData();
 
@@ -124,6 +118,4 @@ class HomeController extends BaseController
     {
         return "contact page";
     }
-
-
 }

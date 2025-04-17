@@ -1,5 +1,4 @@
 <div class="adminContent">
-    <?php dump($work) ?>
     <div class="container">
         <h2>Редактирование объекта № <?= $work['id'] ?></h2>
 

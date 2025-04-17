@@ -44,14 +44,6 @@
 
 </head>
 <body>
-<?php
-dump([
-    '$_SESSION[csrf_token]' => $_SESSION['csrf_token'],
-    'авторизован?' => \PHPFrw\Auth::isAuth(),
-    'юзер'=>\PHPFrw\Auth::user()
-]);
-dump($_SESSION)
-?>
 <!---header---->
 <header id="header" class="header">
     <div class="container">

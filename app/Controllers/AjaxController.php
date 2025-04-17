@@ -20,7 +20,7 @@ class AjaxController extends BaseController
         }
 
         if (!empty($catId)){
-            $where = "where category_id = ".$catId;
+            $where = "where category_id = {$catId} and publish = 1";
         };
 
         $works = db()
@@ -62,7 +62,7 @@ class AjaxController extends BaseController
         }
 
         if (!empty($catId)){
-            $where = "where category_id = ".$catId;
+            $where .= "where category_id = {$catId} and publish = 1";
         };
 
         $works = db()
@@ -78,8 +78,6 @@ class AjaxController extends BaseController
         }
 
         empty($works) ? $status = false : $status = true;
-
-//        $countWorks = $this->countWorks('works', $catId);
 
         if (request()->isAjax()) {
             echo json_encode([
@@ -108,7 +106,7 @@ class AjaxController extends BaseController
         }
 
         if (!empty($catId)){
-            $where = "where category_id = ".$catId;
+            $where = "where category_id =  {$catId} and publish = 1";
         };
 
         $works = db()
