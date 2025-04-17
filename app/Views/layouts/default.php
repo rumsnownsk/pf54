@@ -57,7 +57,7 @@ dump($_SESSION)
     <div class="container">
         <div class="headerLine">
             <div class="header__logo">
-                <img src="/images/logo.png" class="logo" alt="паспорт фасадов" title="Паспорт фасада новосибирск"/>
+                <img src="/images/common/logo.png" class="logo" alt="паспорт фасадов" title="Паспорт фасада новосибирск"/>
             </div>
             <div class="header__info">
                 <h1 class="">паспорт фасадов</h1>
