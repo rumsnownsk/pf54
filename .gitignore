@@ -1,6 +1,5 @@
 vendor/
 
-config/config.php
 public/images/works/
 public/favicon.png
 public/images/favicon.ico
@@ -9,6 +8,8 @@ public/webstat/
 tmp/cache/
 tmp/config.php
 tmp/errors.log
+
+composer.lock
 
 .idea
 .git
