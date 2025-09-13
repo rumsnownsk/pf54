@@ -210,5 +210,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 500); // Delay of 0.5 seconds
 });
 
+const menuBtn = document.querySelector('.menu__bnt', (e)=>{
+
+})
+
+
 
 

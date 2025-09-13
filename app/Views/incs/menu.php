@@ -1,4 +1,4 @@
-<ul class="menu">
+<ul class="menu__list">
     <li class="menu__item"><a href="<?= base_url('/') ?>">главная</a></li>
     <li class="menu__item"><a href="<?= base_url('/law') ?>">закон</a></li>
     <li class="menu__item"><a href="<?= base_url('/works') ?>">готовые паспорта</a></li>
