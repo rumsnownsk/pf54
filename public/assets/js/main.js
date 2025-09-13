@@ -210,10 +210,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 500); // Delay of 0.5 seconds
 });
 
-const menuBtn = document.querySelector('.menu__bnt', (e)=>{
+const menuBtn = document.querySelector('.menu__bnt')
+const menu = document.querySelector('.menu')
 
+menuBtn.addEventListener('click', (e)=>{
+    menu.classList.toggle('menu--open')
 })
-
 
 
 
