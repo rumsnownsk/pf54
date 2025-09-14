@@ -8,13 +8,15 @@
     <?= get_csrf_meta(); ?>
     <link rel="icon" href="<?= base_url('/images/favicon.ico') ?>">
 
-    <link type='text/css' rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link type='text/css' rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/bootstrap/css/bootstrap.min.css') ?>">
     <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/iziModal/css/iziModal.min.css') ?>">
     <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
           rel="stylesheet">
+    <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/css/mobile-menu.css') ?>">
     <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/css/main.css') ?>">
-    <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/css/mobile_menu.css') ?>">
+<!--    <link type='text/css' rel="stylesheet" href="--><?php //= base_url('/assets/css/mm.css') ?><!--">-->
 
     <meta name="description"
           content="Разработка согласование и получение паспортов фасадов зданий в Новосибирске и других городах">
@@ -32,17 +34,17 @@
           rel="stylesheet">
 
 
-<!--    --><?php //if (!empty($styles)) : ?>
-<!--        --><?php //foreach ($styles as $style) : ?>
-<!--            <link rel="stylesheet" href="--><?//= $style; ?><!--">-->
-<!--        --><?php //endforeach; ?>
-<!--    --><?php //endif; ?>
-<!---->
-<!--    --><?php //if (!empty($header_scripts)) : ?>
-<!--        --><?php //foreach ($header_scripts as $header_script) : ?>
-<!--            <script src="--><?//= $header_script ?><!--"></script>-->
-<!--        --><?php //endforeach; ?>
-<!--    --><?php //endif; ?>
+    <!--    --><?php //if (!empty($styles)) : ?>
+    <!--        --><?php //foreach ($styles as $style) : ?>
+    <!--            <link rel="stylesheet" href="--><? //= $style; ?><!--">-->
+    <!--        --><?php //endforeach; ?>
+    <!--    --><?php //endif; ?>
+    <!---->
+    <!--    --><?php //if (!empty($header_scripts)) : ?>
+    <!--        --><?php //foreach ($header_scripts as $header_script) : ?>
+    <!--            <script src="--><? //= $header_script ?><!--"></script>-->
+    <!--        --><?php //endforeach; ?>
+    <!--    --><?php //endif; ?>
 
 
 </head>
@@ -52,7 +54,8 @@
     <div class="container">
         <div class="headerLine">
             <div class="header__logo">
-                <img src="/images/common/logo.png" class="logo" alt="паспорт фасадов" title="Паспорт фасада новосибирск"/>
+                <img src="/images/common/logo.png" class="logo" alt="паспорт фасадов"
+                     title="Паспорт фасада новосибирск"/>
             </div>
             <div class="header__info">
                 <h1 class="">паспорт фасадов</h1>
@@ -79,31 +82,36 @@
                 </div>
             </div>
         </div>
-        <nav class="menu menu--open">
-            <button class="menu__bnt">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <?php /** @var string $menu */
-            if (isset($menu)): echo $menu; endif; ?>
-        </nav>
 
         <!--Кнопка-->
-        <button class="hamburger" id="mobile-menu-btn">
-            <div class="btn__hamb">
-                <div></div>
-            </div>
+        <button class="menu__bnt" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
+        <div class="menu">
+            <?php /** @var string $menu */
+            if (isset($menu)): echo $menu; endif; ?>
+        </div>
 
         <!--Мобильное меню-->
         <div class="mobile-menu" id="mobile-menu">
             <div class="mm__bg mm__close"></div>
             <div class="mm__wrapper" id="mm__wrapper">
-                <div class="mm__header">
-                    <span class="close-btn close-btn--red mm__close"></span>
-                    <a href="/" class="h__logo"></a>
-                </div>
+<!--                <div class="mm__header">-->
+<!--                    <span class="close-btn close-btn--red mm__close"></span>-->
+<!--                    <a href="/" class="h__logo"></a>-->
+<!--                </div>-->
+                <ul>
+                    <li class="menu__item"><a href="<?= base_url('/') ?>">главная</a></li>
+                    <li class="menu__item"><a href="<?= base_url('/law') ?>">закон</a></li>
+                    <li class="menu__item"><a href="<?= base_url('/works') ?>">готовые паспорта</a></li>
+                    <li class="menu__item"><a href="<?= base_url('/procedure') ?>">порядок получения паспорта</a>
+                    </li>
+                    <li class="menu__item"><a href="<?= base_url('/service') ?>">дополнительные услуги</a></li>
+                    <li class="menu__item"><a href="<?= base_url('/contacts') ?>">контакты</a></li>
+                </ul>
             </div>
         </div>
 
@@ -120,7 +128,6 @@
 <!---//end_content---->
 
 
-
 <!---footer---->
 <footer id="footer" class="footer">
     <div class="container">
@@ -132,15 +139,15 @@
 
 <?php //if (!empty($footer_scripts)) : ?>
 <!--    --><?php //foreach ($footer_scripts as $footer_script) : ?>
-<!--        <script src="--><?//= $footer_script ?><!--"></script>-->
+<!--        <script src="--><? //= $footer_script ?><!--"></script>-->
 <!--    --><?php //endforeach; ?>
 <?php //endif; ?>
 
-<script type="text/javascript" src="<?= base_url('/assets/js/jquery-3.7.1.min.js')?>"></script>
-<script type="text/javascript" src="<?= base_url('/assets/bootstrap/js/bootstrap.min.js')?>"></script>
-<script type="text/javascript" src="<?= base_url('/assets/iziModal/js/iziModal.min.js')?>"></script>
-<script type="text/javascript" src="<?= base_url('/assets/js/main.js')?>"></script>
-<script type="text/javascript" src="<?= base_url('/assets/js/mobile_menu.js')?>"></script>
+<script type="text/javascript" src="<?= base_url('/assets/js/jquery-3.7.1.min.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('/assets/bootstrap/js/bootstrap.min.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('/assets/iziModal/js/iziModal.min.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('/assets/js/main.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('/assets/js/mobile_menu.js') ?>"></script>
 
 <div class="iziModal-alert-success"></div>
 <div class="iziModal-alert-error"></div>

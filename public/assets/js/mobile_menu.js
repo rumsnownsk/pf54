@@ -6,14 +6,14 @@ $(document).ready(function () {
         $('#mm__wrapper')
             .css('visibility', 'visible')
             .css('transform', 'translateX(0)');
-        $("body").css("overflow","hidden");
+        $("body").css("overflow-x","hidden");
     });
     //закрытие мобильного меню
     $('.mm__close').click( function(){
         $('#mobile-menu').fadeOut();
         $('#mm__wrapper')
             .css('visibility', 'hidden')
-            .css('transform', 'translateX(-100%)');
-        $("body").css("overflow","auto");
+            .css('transform', 'translateX(100%)');
+        $("body").css("overflow-x","auto");
     });
 });
