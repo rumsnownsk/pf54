@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
           rel="stylesheet">
     <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/css/main.css') ?>">
+    <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/css/mobile_menu.css') ?>">
 
     <meta name="description"
           content="Разработка согласование и получение паспортов фасадов зданий в Новосибирске и других городах">
@@ -88,6 +89,23 @@
             if (isset($menu)): echo $menu; endif; ?>
         </nav>
 
+        <!--Кнопка-->
+        <button class="hamburger" id="mobile-menu-btn">
+            <div class="btn__hamb">
+                <div></div>
+            </div>
+        </button>
+
+        <!--Мобильное меню-->
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mm__bg mm__close"></div>
+            <div class="mm__wrapper" id="mm__wrapper">
+                <div class="mm__header">
+                    <span class="close-btn close-btn--red mm__close"></span>
+                    <a href="/" class="h__logo"></a>
+                </div>
+            </div>
+        </div>
 
 </header>
 <!---//end_header---->
@@ -122,6 +140,7 @@
 <script type="text/javascript" src="<?= base_url('/assets/bootstrap/js/bootstrap.min.js')?>"></script>
 <script type="text/javascript" src="<?= base_url('/assets/iziModal/js/iziModal.min.js')?>"></script>
 <script type="text/javascript" src="<?= base_url('/assets/js/main.js')?>"></script>
+<script type="text/javascript" src="<?= base_url('/assets/js/mobile_menu.js')?>"></script>
 
 <div class="iziModal-alert-success"></div>
 <div class="iziModal-alert-error"></div>

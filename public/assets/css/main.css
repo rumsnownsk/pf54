@@ -902,7 +902,8 @@ a.loadMore{
         margin: 0 20px 20px;
     }
     ul.menu__list{
-        /*visibility: hidden;*/
+        display: none;
+        visibility: hidden;
         position: absolute;
         height: min-content;
         flex-direction: column;
@@ -914,7 +915,7 @@ a.loadMore{
         background-color: #495057;
         color: #fff;
         opacity: 95%;
-        display: flex;
+        /*display: flex;*/
         margin: 0 auto;
         width: fit-content;
         transform: translateY(-100%);
