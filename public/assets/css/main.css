@@ -211,8 +211,8 @@ section.content {
 .countWork {
     display: flex;
     justify-content: center;
-    margin: 50px auto;
-    width: 360px;
+    margin: 0 auto;
+    max-width: 360px;
     height: 80px;
     border: 3px solid #9CA0A2;
     border-radius: 8px;
@@ -293,7 +293,7 @@ section.content {
     background-color: #DBDBDB;
     margin: auto;
     height: 30px;
-    width: 500px;
+    width: auto;
 }
 
 .orangeFone {
@@ -384,7 +384,7 @@ section.content {
     background-color: #ff6600;
     text-transform: none;
     margin: auto;
-    width: 600px;
+    /*width: 600px;*/
     /*border: 1px solid;*/
     border-radius: 40px;
 }
@@ -807,9 +807,9 @@ a.loadMore{
     width: 100%;
 }
 
-.hamburger{
-    position: fixed;
-}
+/*.hamburger{*/
+/*    position: fixed;*/
+/*}*/
 .menu__bnt{
     display: none;
     border-radius: 5px;
@@ -824,7 +824,7 @@ a.loadMore{
     cursor: pointer;
     padding: 0;
     border: 1px solid #DBDBDB;
-    z-index: 1;
+    /*z-index: 1;*/
 }
 
 .menu__bnt span{
@@ -846,7 +846,7 @@ a.loadMore{
 
 @media (max-width: 1280px) {
     body{
-        /*background: none;*/
+        background: none;
         width: 1024px;
     }
     .listWorks{
@@ -854,6 +854,7 @@ a.loadMore{
     }
 }
 
+/*@media (max-width: 992px) {*/
 @media (max-width: 992px) {
     body{
         width: 100%;
@@ -869,13 +870,6 @@ a.loadMore{
     .whyIt__desc{
         left: 0;
         width: auto;
-    }
-    .header__info h1,
-    .header__info p{
-        text-align: center;
-    }
-    .social-contact span{
-        display: block;
     }
 
     .lawItem{
@@ -924,7 +918,8 @@ a.loadMore{
         position: fixed;
         height: max-content;
         min-height: 40%;
-        background: #DBDBDB;
+        background: #d9d9d9;
+        max-width: 65%;
     }
     .mobile-menu {
         padding-top: 0;
@@ -937,46 +932,22 @@ a.loadMore{
         /* justify-content: space-evenly; */
         /* align-items: center; */
     }
-    .mobile-menu ul li{
-        height: max-content;
-        font-size: 20px;
-    }
+    /*.mobile-menu ul li{*/
+    /*    height: max-content;*/
+    /*    font-size: 20px;*/
+    /*}*/
     .mobile-menu ul li a{
         display: inline-block;
         padding: 20px;
-        color: #6b2b00;
+        color: #FF6600;
+        font-size: 24px;
     }
-    /*ul.menu__list{*/
-    /*    !*display: none;*!*/
-    /*    !*visibility: hidden;*!*/
-    /*    position: absolute;*/
-    /*    height: min-content;*/
-    /*    flex-direction: column;*/
-    /*    justify-content: space-around;*/
-    /*    left: 0;*/
-    /*    right: 0;*/
-    /*    bottom: 0;*/
-    /*    top: 0;*/
-    /*    background-color: #495057;*/
-    /*    color: #fff;*/
-    /*    opacity: 95%;*/
-    /*    display: flex;*/
-    /*    margin: 0 auto;*/
-    /*    !*width: fit-content;*!*/
-    /*    !*transform: translateY(-100%);*!*/
-    /*}*/
-    /*ul.menu__list a{*/
-    /*    color: #ff6600;*/
-    /*    font-weight: 700;*/
-    /*}*/
     .menu__bnt{
         display: flex;
         position: absolute;
         /*border: none;*/
     }
-    /*.active{*/
-    /*    background-color: inherit;*/
-    /*}*/
+
 }
 
 @media (max-width: 480px) {
@@ -989,5 +960,44 @@ a.loadMore{
     }
     .icon_procedure{
         display: none;
+    }
+
+    .headerLine{
+        flex-wrap: wrap;
+        padding: 8px;
+    }
+    .header__logo{
+        max-width: 25%;
+    }
+    .header__info{
+        width: 75%;
+    }
+    .header__info h1,
+    .header__info p{
+        text-align: center;
+    }
+    .header__info h1{
+        font-size: calc(2rem);
+        line-height: 1;
+    }
+    .header__info p{
+        font-size: calc(1rem);
+    }
+
+    .header__logo img{
+        width: 100%; /* or any custom size */
+        height: 100%;
+        object-fit: contain;
+    }
+    .header__contact{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 15px;
+    }
+    .header__contact i{
+        font-size: 20px;
+    }
+    .header__contact span{
+        margin-left: 0;
     }
 }
