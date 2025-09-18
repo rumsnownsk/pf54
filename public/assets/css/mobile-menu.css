@@ -1,69 +1,3 @@
-/*Стили кнопки*/
-/*.hamburger {*/
-/*    !*position: relative;*!*/
-/*    display: inline-block;*/
-/*    vertical-align: middle;*/
-/*    cursor: pointer;*/
-/*    width: 60px;*/
-/*    height: 50px;*/
-/*    border: 1px solid #0E7318;*/
-/*    background: #fff;*/
-/*    padding: 5px;*/
-/*    border-radius: 8px;*/
-
-/*    position: fixed;*/
-/*    top: 25px;*/
-/*    right: 15px;*/
-/*}*/
-
-/*.btn__hamb {*/
-/*    position: relative;*/
-/*    display: block;*/
-/*    width: 100%;*/
-/*    height: 4px;*/
-/*    background: #0E7318;*/
-/*    cursor: pointer;*/
-/*}*/
-
-/*.btn__hamb div {*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*}*/
-
-/*.btn__hamb:before, .btn__hamb:after {*/
-/*    content: "";*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    position: absolute;*/
-/*    left: 0;*/
-/*    background: #0E7318;*/
-/*}*/
-
-/*.btn__hamb:before {*/
-/*    top: -8px;*/
-/*}*/
-
-/*.btn__hamb:after {*/
-/*    top: 8px;*/
-/*}*/
-
-/*Стили мобильного меню*/
-/*.mobile-menu {*/
-/*    display: none;*/
-/*    !*position: fixed;*!*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    height: 100%;*/
-/*    width: 100%;*/
-/*    z-index: 100;*/
-/*}*/
-
-/*@media (min-width: 768px) {*/
-/*    .mobile-menu {*/
-/*        padding-top: 0;*/
-/*    }*/
-/*}*/
-
 /*получпрозрачный фон*/
 .mobile-menu .mm__bg {
     position: absolute;
@@ -77,42 +11,18 @@
 
 /*Контейнер мобильного меню, именно он выезжает слева*/
 .mobile-menu .mm__wrapper {
-    /*visibility: hidden;*/
     display: block;
     -webkit-transform: translateX(100%);
     transform: translateX(100%);
     transition: all .4s ease-in-out;
     overflow-x: auto;
-    /*position: absolute;*/
-    /*width: 50%;*/
-    /*height: 100%;*/
-    z-index: 200;
+    z-index: 2000;
     touch-action: auto;
     -ms-touch-action: auto;
-    /*background: #fff;*/
-
     right: 0;
 }
 
-/*@media (max-width: 800px) {*/
-/*@media (max-width: 760px) {*/
-/*    .mobile-menu,*/
-/*    .mm__wrapper {*/
-/*        width: max-content;*/
-/*        !*min-width: 250px;*!*/
-/*        height: max-content;*/
-/*        min-height: 40%;*/
-/*    }*/
-/*    .mobile-menu {*/
-/*        padding-top: 0;*/
-/*    }*/
-/*}*/
 
-/*@media (min-width: 1200px) {*/
-/*    .mobile-menu .mm__wrapper {*/
-/*        width: 25%;*/
-/*    }*/
-/*}*/
 
 /*Стили логотипа в меню (опционально)*/
 .mobile-menu .h__logo {

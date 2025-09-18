@@ -375,7 +375,7 @@ section.content {
 
 .slogan {
     width: auto;
-    padding-bottom: 40px;
+    padding: 0 25px;
 }
 
 .slogan h3 {
@@ -383,8 +383,8 @@ section.content {
     font-size: 24px;
     background-color: #ff6600;
     text-transform: none;
-    margin: auto;
-    /*width: 600px;*/
+    margin: 0 auto;
+    max-width: 600px;
     /*border: 1px solid;*/
     border-radius: 40px;
 }
@@ -392,9 +392,10 @@ section.content {
 /*section law*/
 
 .lawItem {
+    padding: 0 120px;
     min-height: 80px;
     display: flex;
-    width: 980px;
+    width: auto;
     margin: 28px auto 0;
 }
 
@@ -513,6 +514,8 @@ p.law_date {
     width: 420px;
     height: 120px;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    min-height: max-content;
+    padding: 5px;
 }
 
 .addService_item:hover{
@@ -846,7 +849,6 @@ a.loadMore{
 
 @media (max-width: 1280px) {
     body{
-        background: none;
         width: 1024px;
     }
     .listWorks{
@@ -854,9 +856,9 @@ a.loadMore{
     }
 }
 
-/*@media (max-width: 992px) {*/
 @media (max-width: 992px) {
     body{
+        background: none;
         width: 100%;
     }
     .aboutUs,
@@ -874,7 +876,8 @@ a.loadMore{
 
     .lawItem{
         width: auto;
-        gap: 20px;
+        gap: 5px;
+        padding: 0 10px;
     }
     .lawItem_desc{
         padding: 5px;
@@ -896,7 +899,9 @@ a.loadMore{
     }
     a.step_item{
         width: auto;
-        gap: 10px;
+        /*gap: 10px;*/
+        height: max-content;
+        padding: 7px 0 5px;
     }
     p.step_desc{
         font-size: 16px;
@@ -906,6 +911,12 @@ a.loadMore{
     }
     .menu li a{
         padding: 0 25px;
+    }
+    .num_procedure{
+        height: 50px;
+        font-size: 30px;
+        margin: 0;
+        text-align: center;
     }
 }
 
@@ -925,17 +936,9 @@ a.loadMore{
         padding-top: 0;
     }
     .mobile-menu ul{
-        /* gap: 25px; */
         text-align: center;
-        /* display: flex; */
-        /*flex-direction: column;*/
-        /* justify-content: space-evenly; */
-        /* align-items: center; */
     }
-    /*.mobile-menu ul li{*/
-    /*    height: max-content;*/
-    /*    font-size: 20px;*/
-    /*}*/
+
     .mobile-menu ul li a{
         display: inline-block;
         padding: 20px;
@@ -947,6 +950,26 @@ a.loadMore{
         position: absolute;
         /*border: none;*/
     }
+    .lastWorks p{
+        font-size: calc(.8em);
+    }
+    .slogan h3 {
+        padding: 10px;
+        font-size: 22px;
+        border-radius: 20px;
+    }
+    .lawItem{
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .lawItem_whatIs{
+        width: max-content;
+        padding: 12px;
+    }
+    .lawItem_desc{
+        width: auto;
+    }
 
 }
 
@@ -956,7 +979,9 @@ a.loadMore{
         flex-basis: 90%;
     }
     .procedure{
-        margin: 0 5px 10px;
+        margin: 0 auto;
+        padding: 10px;
+        gap: 8px;
     }
     .icon_procedure{
         display: none;
@@ -999,5 +1024,15 @@ a.loadMore{
     }
     .header__contact span{
         margin-left: 0;
+    }
+    .step_item{
+        flex-direction: column;
+        height: max-content;
+    }
+    p.step_num{
+        font-size: 30px;
+    }
+    .desc_proc ol{
+        padding-left: 0;
     }
 }
