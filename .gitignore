@@ -10,5 +10,7 @@ tmp/cache/
 tmp/config.php
 tmp/errors.log
 
+composer.lock
+
 .idea
 .git
