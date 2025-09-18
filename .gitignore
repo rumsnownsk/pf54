@@ -1,6 +1,5 @@
 vendor/
 
-config/config.php
 public/images/works/
 public/favicon.png
 public/images/favicon.ico
