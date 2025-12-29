@@ -29,7 +29,7 @@ dump([
     'авторизован?' => \PHPFrw\Auth::isAuth(),
     'юзер'=>\PHPFrw\Auth::user()
 ]);
-dump($work)
+//dump($work)
 ?>
 <!---header---->
 </div>

@@ -1,5 +1,4 @@
 <?php
-
 define("ROOT", dirname(__DIR__));
 const DEBUG = 1;
 const WWW = ROOT.'/public';
@@ -12,7 +11,7 @@ const VIEWS = APP.'/Views';
 const ERROR_LOGS = ROOT.'/tmp/errors.log';
 const CACHE =ROOT.'/tmp/cache';
 const LAYOUT = 'default';
-const PATH = 'http://pf54.loc';
+const PATH = 'https://pf54.ru';
 const IMAGES = WWW.'/images';
 
 const DB_SETTINGS = [
