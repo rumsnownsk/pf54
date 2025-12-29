@@ -17,10 +17,10 @@ const IMAGES = WWW.'/images';
 
 const DB_SETTINGS = [
     'driver' => 'mysql',
-    'host' => '',
-    'database' => '',
-    'username' => '',
-    'password' => '',
+    'host' => 'localhost',
+    'database' => 'pf_nsk',
+    'username' => 'admin',
+    'password' => 'admin',
     'charset' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',
     'port' => 3306,
