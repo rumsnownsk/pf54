@@ -1,6 +1,10 @@
 <?php
 namespace PHPFrw;
 
+//use RuntimeException;
+
+use RuntimeException;
+
 class Application
 {
     protected string $uri;
@@ -21,6 +25,7 @@ class Application
     public function __construct()
     {
         self::$app=$this;
+
 
         $this->uri = $_SERVER['REQUEST_URI'];
 

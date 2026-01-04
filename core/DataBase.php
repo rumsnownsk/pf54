@@ -4,6 +4,8 @@
 namespace PHPFrw;
 
 
+use Dotenv\Dotenv;
+
 class DataBase
 {
     protected \PDO $connection;
@@ -12,14 +14,13 @@ class DataBase
 
     public function __construct()
     {
-        $dsn = "mysql:host=". DB_SETTINGS['host'] .";dbname=". DB_SETTINGS['database']
-            . ";charset=". DB_SETTINGS['charset'];
+        $dsn = "mysql:host=". DB_HOST .";dbname=". DB_DATABASE . ";charset=". DB_CHARSET;
 
         try {
             $this->connection = new \PDO(
                 $dsn,
-                DB_SETTINGS['username'],
-                DB_SETTINGS['password'],
+                DB_USERNAME,
+                DB_PASSWORD,
                 DB_SETTINGS['options']
             );
         } catch ( \PDOException $e){

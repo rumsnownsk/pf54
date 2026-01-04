@@ -1,19 +1,12 @@
 <?php
-//var_dump(__DIR__."/../config/config.php");die;
-$start_fr = microtime(true);
 
-if (PHP_MAJOR_VERSION < 8){
-    die("Require PHP version >= 8");
-}
-ini_set('display_errors', 1);
-error_reporting(-1);
+require_once "../vendor/autoload.php";
 
 require_once __DIR__."/../config/config.php";
 require_once __DIR__."/../helpers/helpers.php";
-require_once ROOT."/vendor/autoload.php";
 
 $whoops = new \Whoops\Run;
-if (DEBUG) {
+if (APP_DEBUG) {
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler())->register();
 } else {
     $whoops->pushHandler(new \Whoops\Handler\CallbackHandler(function (Throwable $e){
@@ -25,8 +18,7 @@ if (DEBUG) {
         abort('Some error', 500);
     }))->register();
 }
-//$whoops->register();
-
+$whoops->register();
 
 
 $app = new \PHPFrw\Application();

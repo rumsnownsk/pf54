@@ -25,7 +25,7 @@
                     <?php foreach ($lastWorks as $lastWork) : ?>
                         <div class="lastWorks_item">
 
-                            <img src="/images/works/<?= $lastWork['photoName'] ?>" alt="паспорт фасадов"
+                            <img src="<?= IMAGES_PATH ."/works". $lastWork['photoName'] ?>" alt="паспорт фасадов"
                                  class="lastWork_img">
 
                             <p><?= $lastWork['title'] ?></p>

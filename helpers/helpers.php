@@ -1,5 +1,6 @@
 <?php
 
+use Dotenv\Dotenv;
 use JetBrains\PhpStorm\NoReturn;
 use JetBrains\PhpStorm\Pure;
 
@@ -75,7 +76,7 @@ function abort($error = '', $code = 404)
 
 function base_url($path=''): string
 {
-    return PATH.$path;
+    return PATH_URL.$path;
 }
 
 function get_alerts(): void
@@ -154,4 +155,84 @@ function formOldSelect($category_id, $work='')
         return $category_id == $work['category_id'] ? 'selected' : '';
     }
     return '';
+}
+
+/**
+ * Загружает переменные из .env и преобразует их в PHP-константы
+ * @param string $filePath Путь к файлу .env
+ * @throws RuntimeException Если файл не найден или ошибка чтения
+ */
+function loadEnvAsConstants(string $filePath): void
+{
+    // Проверка существования файла
+    if (!file_exists($filePath)) {
+        throw new RuntimeException(sprintf('Файл .env не найден: %s', $filePath));
+    }
+
+    // Чтение строк с фильтрацией пустых и комментариев
+    $lines = file($filePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    if ($lines === false) {
+        throw new RuntimeException(sprintf('Не удалось прочитать файл: %s', $filePath));
+    }
+
+    foreach ($lines as $line) {
+        $line = trim($line);
+
+        // Пропускаем комментарии и пустые строки
+        if ($line === '' || strpos($line, '#') === 0 || strpos($line, ';') === 0) {
+            continue;
+        }
+
+        // Разделяем ключ и значение (только по первому знаку =)
+        $parts = explode('=', $line, 2);
+        if (count($parts) !== 2) {
+            error_log(sprintf('Пропущена некорректная строка в .env: %s', $line));
+            continue;
+        }
+
+        $key = trim($parts[0]);
+        $value = trim($parts[1]);
+
+        // Удаляем кавычки (одинарные и двойные)
+        if (is_string($value) && $value !== '') {
+            $firstChar = $value[0];
+            $lastChar  = $value[strlen($value) - 1];
+
+            if (($firstChar === '"' && $lastChar === '"') ||
+                ($firstChar === "'" && $lastChar === "'")) {
+                $value = substr($value, 1, -1);
+            }
+        }
+
+        // Экранирование: \n → LF, \t → TAB и т.д.
+        $value = str_replace(['\\n', '\\r', '\\t', '\\0', '\\\''], ["\n", "\r", "\t", "\0", "'"], $value);
+
+        // Приведение типов (опционально)
+        if (is_numeric($value)) {
+            $value = $value + 0; // Преобразуем в число (int/float)
+        } elseif (strtolower($value) === 'true') {
+            $value = true;
+        } elseif (strtolower($value) === 'false') {
+            $value = false;
+        } elseif (strtolower($value) === 'null') {
+            $value = null;
+        }
+
+        // Определяем константу, только если её ещё нет
+        if (!defined($key)) {
+            define($key, $value);
+            // Для отладки (можно убрать)
+            error_log(sprintf('Определена константа: %s = %s', $key, json_encode(constant($key))));
+        } else {
+            error_log(sprintf('Константа %s уже существует, пропуск', $key));
+        }
+    }
+}
+
+try {
+    loadEnvAsConstants(ROOT . '/.env');
+} catch (RuntimeException $e) {
+    error_log("[" . date('Y-m-d H:i:s') . "] Server Error: {$e->getMessage()}" . PHP_EOL, 3, ERROR_LOGS);
+    abort('Contact with administrator', 500);
+    exit(1);
 }
