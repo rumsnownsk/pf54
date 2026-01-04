@@ -1,7 +1,9 @@
 <?php
 
-ini_set('display_errors', 1);
-error_reporting(-1);
+if (getenv('APP_DEBUG') === 'true') {
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+}
 
 if (PHP_MAJOR_VERSION < 8){
     die("Require PHP version >= 8");
