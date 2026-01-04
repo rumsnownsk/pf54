@@ -1,6 +1,13 @@
 <?php
+
+ini_set('display_errors', 1);
+error_reporting(-1);
+
+if (PHP_MAJOR_VERSION < 8){
+    die("Require PHP version >= 8");
+}
+define("HOST", $_SERVER['HTTP_HOST']);
 define("ROOT", dirname(__DIR__));
-const DEBUG = 1;
 const WWW = ROOT.'/public';
 const CONFIG = ROOT.'/config';
 const HELPERS = ROOT.'/helpers';
@@ -11,19 +18,9 @@ const VIEWS = APP.'/Views';
 const ERROR_LOGS = ROOT.'/tmp/errors.log';
 const CACHE =ROOT.'/tmp/cache';
 const LAYOUT = 'default';
-const PATH = 'https://pf54.ru';
 const IMAGES = WWW.'/images';
 
 const DB_SETTINGS = [
-    'driver' => 'mysql',
-    'host' => 'localhost',
-    'database' => 'pf_nsk',
-    'username' => 'admin',
-    'password' => 'admin',
-    'charset' => 'utf8mb4',
-    'collation' => 'utf8mb4_unicode_ci',
-    'port' => 3306,
-    'prefix' => '',
     'options' => [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
