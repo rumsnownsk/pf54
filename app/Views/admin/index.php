@@ -18,7 +18,7 @@
                 <?php foreach ($works as $work) : ?>
                     <tr>
                         <th scope="row"><?= $work['id'] ?></th>
-                        <td class="image_td"><img src="/images/works/<?= $work['photoName'] ?>" alt="паспорт фасадов"></td>
+                        <td class="image_td"><img src="/images/works<?= $work['photoName'] ?>" alt="паспорт фасадов"></td>
                         <td><a href="/admin/build/<?= $work['id'] ?>"><?= $work['title'] ?></a></td>
                         <td><?= $work['publish'] ?></td>
                         <td><?= $work['category'] ?></td>

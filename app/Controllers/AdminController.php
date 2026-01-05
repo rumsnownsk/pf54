@@ -50,14 +50,14 @@ class AdminController extends BaseController
 
         $file = new File();
 
-        $model = new Work();
-        $model->loadData();
-        $model->attributes['timeCreate'] = strtotime($model->attributes['timeCreate']);
-        $model->attributes['publish'] = $model->attributes['publish'] ? 1 : 0;
-
-        request()->isFileUploaded() ?? $model->attributes['photoName'] = $file->imageNameDb;
-
-        if ($model->save()){
+        $work = new Work();
+        $work->loadData();
+        $work->attributes['timeCreate'] = strtotime($work->attributes['timeCreate']);
+        $work->attributes['publish'] = $work->attributes['publish'] ? 1 : 0;
+        if(request()->isFileUploaded()){
+            $work->attributes['photoName'] = $file->imageNameDb;
+        }
+        if ($work->save()){
             $file->save();
         };
 
