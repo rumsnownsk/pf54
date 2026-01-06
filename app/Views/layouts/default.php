@@ -9,11 +9,10 @@
     <link rel="icon" href="<?= base_url('/images/favicon.ico') ?>">
 
     <link type='text/css' rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/bootstrap/css/bootstrap.min.css') ?>">
     <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/iziModal/css/iziModal.min.css') ?>">
-    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
-          rel="stylesheet">
+<!--    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">-->
     <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/css/mobile-menu.css') ?>">
     <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/css/main.css') ?>">
 
@@ -29,8 +28,10 @@
     <title>Паспорт Фасадов<?php echo $title ?? ''; ?></title>
 
     <!----webfonts---->
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-          rel="stylesheet">
+<!--    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"-->
+<!--          rel="stylesheet">-->
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Segoe+UI&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -58,12 +59,10 @@
                                style="color:#FF6600;">pfnsk@list.ru</a>
                     </span>
                 </div>
+                <div><i class="fa fa-mobile" aria-hidden="true"></i><span>+7-913-944-8850</span></div>
                 <div class="social-contact">
-                    <i class="fa fa-mobile" aria-hidden="true"></i>
-                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                    <span>
-                        <a href="https://wa.me/79139448850?text=Здравствуйте! У меня вопрос" target="_blank">+7-913-944-8850</a>
-                    </span>
+                    <a href="https://wa.me/79139448850?text=Здравствуйте! У меня вопрос" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                    <a href="https://t.me/+79139448850" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>

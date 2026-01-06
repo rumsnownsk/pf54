@@ -35,3 +35,18 @@ const PAGINATION_SETTINGS = [
     'maxPages' => 7,
     'tpl' => 'pagination/base'
 ];
+
+$whoops = new \Whoops\Run;
+if (getenv('APP_DEBUG')) {
+    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler())->register();
+} else {
+    $whoops->pushHandler(new \Whoops\Handler\CallbackHandler(function (Throwable $e){
+        error_log(
+            PHP_EOL."______ [" . date('Y-m-d H:i:s'). "]______"
+            . PHP_EOL."  Error: {$e->getMessage()};"
+            . PHP_EOL."  File: {$e->getFile()};"
+            . PHP_EOL. "  Line: {$e->getLine()};",3, ERROR_LOGS);
+        abort('Some error', 500);
+    }))->register();
+}
+$whoops->register();

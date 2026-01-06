@@ -59,7 +59,7 @@ class Router
         $route = $this->matchRoute($path);
 
         if (false === $route) {
-            abort('400004 - Page not found', 404);
+            abort('something wrong', 404);
         }
 
         if (is_array($route['callback'])) {

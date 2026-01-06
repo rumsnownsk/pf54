@@ -9,7 +9,11 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+
+    /*margin: 0;*/
     padding: 0;
     text-transform: uppercase;
     text-align: center;
@@ -30,6 +34,9 @@ a{
 ul, li, p {
     margin: 0;
     padding: 0;
+
+    font-family: 'Roboto', sans-serif;
+
 }
 
 li{
@@ -42,20 +49,21 @@ li{
 
 body {
     background: url("/images/common/bg.jpg") no-repeat center center fixed;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333; /* Тёмно‑серый текст */
+
     display: flex;
     flex-direction: column;
     height: 100%;
+
     width: 1280px;
     margin: 0 auto;
     padding: 0;
-    font-size: 16px;
-
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
     font-style: normal;
-    line-height: 1.6;
-    min-height: 100vh;
 
-    color: #333; /* Тёмно‑серый текст */
+    min-height: 100vh;
 }
 
 .container {
@@ -133,6 +141,10 @@ body {
 
 .headerLocation {
     display: flex;
+}
+
+.social-contact i{
+    margin: 5px 10px 0 0;
 }
 
 .menu__bnt{
@@ -316,25 +328,22 @@ section.content {
 }
 
 .thisIs {
-    margin: 20px 220px;
+    margin: 20px 100px;
 }
 
 .whyIt {
-    margin: 50px 220px;
+    margin: 50px 100px;
+    text-align: justify;
 }
 
 .whyIt i{
     text-align: right;
-    /*width: 25%;*/
-    /*display: block;*/
-    /*margin: auto;*/
     font-size: 35px;
     color: #FF6600;
     top: 15px;
 }
 
 .whyIt li{
-    padding-left: 20px;
     font-size: 20px;
     margin-top: 10px;
     line-height: 1.3em;
@@ -361,10 +370,11 @@ section.content {
 }
 
 .whyIt__desc {
-    /*display: flex;*/
-    left: -50px;
     position: relative;
-    width: 810px;
+}
+
+.whyIt__desc i{
+    width: max-content;
     /*border: 1px solid;*/
 }
 
@@ -373,14 +383,6 @@ section.content {
     margin-top: 5px;
     color: #ff692c;
 }
-
-/*.whyIt__desc p {*/
-/*    !*margin-left: 20px;*!*/
-/*    text-align: justify;*/
-/*    text-align-last: left;*/
-/*    font-size: 20px;*/
-/*    text-indent: 0;*/
-/*}*/
 
 .slogan {
     width: auto;
@@ -401,11 +403,18 @@ section.content {
 /*section law*/
 
 .lawItem {
-    padding: 0 90px;
+    padding: 5px;
     min-height: 80px;
     display: flex;
     width: auto;
-    margin: 28px auto 0;
+    margin: 28px 90px;
+    transition: all 0.3s;
+    border-radius: 10px;
+}
+
+.lawItem:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
 .lawItem p {
@@ -798,6 +807,12 @@ a.loadMore{
     margin: 10px auto;
     text-align: center;
     border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.work_item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
 .work_item p{
