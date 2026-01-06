@@ -38,7 +38,6 @@ class Application
         $this->view = new View(LAYOUT);
 
         $this->generatedCsrfToken();
-//        $this->setDbConnection();
         $this->db = new DataBase();
         Auth::setUser();
     }
@@ -46,7 +45,6 @@ class Application
     public function run(): void // void - ничего не возвращаем
     {
         echo $this->router->dispatch();
-
     }
 
     public function generatedCsrfToken(): void

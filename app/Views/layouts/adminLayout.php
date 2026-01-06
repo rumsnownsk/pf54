@@ -48,7 +48,7 @@ dump([
                         </div>
                     </div>
                     <div class="navbar-expand admin_menu_right">
-                        <a class="a_logout" href="<?= base_url('/admin/logout')?>">logout</a>
+                        <a class="a_logout" href="<?= base_url('/logout')?>">logout</a>
                         <a class="a_resetId" href="<?= base_url('/admin/resetId')?>">resetId</a>
                     </div>
                 </div>

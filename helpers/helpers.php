@@ -1,8 +1,6 @@
 <?php
 
-use Dotenv\Dotenv;
 use JetBrains\PhpStorm\NoReturn;
-use JetBrains\PhpStorm\Pure;
 
 function app(): \PHPFrw\Application
 {
@@ -67,7 +65,7 @@ function view($view = '', $data = [], $layout=''): string|\PHPFrw\View
     return app()->view;
 }
 
-function abort($error = '', $code = 404)
+#[NoReturn] function abort($error = '', $code = 404): void
 {
     response()->setResponseCode($code);
     echo view("errors/{$code}", ['error' => $error], false);
@@ -85,7 +83,8 @@ function get_alerts(): void
         foreach ($_SESSION['flash'] as $k => $v) {
             echo view()->renderPartial(
                 "incs/alert_{$k}",
-                ["flash_{$k}" => session()->getFlash($k)]);
+                ["flash_{$k}" => session()->getFlash($k)]
+            );
         }
     }
 }
