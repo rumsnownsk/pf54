@@ -65,31 +65,29 @@ $app->router->get('/work/(?P<id>[0-9]+)?', function (){
 //    (мультиязычность, часть 1)
 });
 
-$app->router->get('/clearImage', function (){
-    $i = 0;
-    try {
-        $iterator = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator(IMAGES.'/works/', RecursiveDirectoryIterator::SKIP_DOTS)
-        );
-
-        foreach ($iterator as $file) {
-            if ($file->isFile()) {
-                $i++;
-                $fileName = "/".$file->getFilename();
-
-                dump($fileName);
-                $res = db()->query("select * from works where photoName = :photoName", ['photoName' => $fileName])->get();
-                if (!$res) {
-                    @unlink($file->getPathname());
-                }
-            }
-        }
-    } catch (Exception $e) {
-        echo "Ошибка при чтении директории: " . $e->getMessage();
-    }
-
-    dd($i);
-});
+//$app->router->get('/clearImage', function (){
+//    $i = 0;
+//    try {
+//        $iterator = new RecursiveIteratorIterator(
+//            new RecursiveDirectoryIterator(IMAGES.'/works/', RecursiveDirectoryIterator::SKIP_DOTS)
+//        );
+//
+//        foreach ($iterator as $file) {
+//            if ($file->isFile()) {
+//                $i++;
+//                $fileName = "/".$file->getFilename();
+//
+//                dump($fileName);
+//                $res = db()->query("select * from works where photoName = :photoName", ['photoName' => $fileName])->get();
+//                if (!$res) {
+//                    @unlink($file->getPathname());
+//                }
+//            }
+//        }
+//    } catch (Exception $e) {
+//        echo "Ошибка при чтении директории: " . $e->getMessage();
+//    }
+//});
 
 $app->router->get('/', [HomeController::class, 'index']);
 
