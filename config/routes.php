@@ -65,5 +65,37 @@ $app->router->get('/work/(?P<id>[0-9]+)?', function (){
 //    (мультиязычность, часть 1)
 });
 
+
+//$app->router->get('/clearImage', function (){
+//    $y = 0;
+//    $n = 0;
+//    try {
+//        $iterator = new RecursiveIteratorIterator(
+//            new RecursiveDirectoryIterator(IMAGES.'/works/', RecursiveDirectoryIterator::SKIP_DOTS)
+//        );
+//
+//        foreach ($iterator as $file) {
+//            if ($file->isFile()) {
+//                $fileName = $file->getFilename();
+//
+////                dump($fileName);
+//                $res = db()->query("select * from works where photoName like CONCAT('%', :photoName)", ['photoName' => $fileName])->get();
+//                if (!$res) {
+//                    print_r("имя файла `$fileName` нету в таблице mysql.<br>");
+//                    $n++;
+//                    @unlink($file->getPathname());
+//                } else {
+//                    $y++;
+//                    print_r("имя файла: `$fileName` есть в таблице mysql.<br>");
+//                }
+//            }
+//        }
+//        dump($y);
+//        dd($n);
+//    } catch (Exception $e) {
+//        echo "Ошибка при чтении директории: " . $e->getMessage();
+//    }
+//});
+
 $app->router->get('/', [HomeController::class, 'index']);
 
