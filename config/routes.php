@@ -66,7 +66,8 @@ $app->router->get('/work/(?P<id>[0-9]+)?', function (){
 });
 
 //$app->router->get('/clearImage', function (){
-//    $i = 0;
+//    $y = 0;
+//    $n = 0;
 //    try {
 //        $iterator = new RecursiveIteratorIterator(
 //            new RecursiveDirectoryIterator(IMAGES.'/works/', RecursiveDirectoryIterator::SKIP_DOTS)
@@ -74,16 +75,22 @@ $app->router->get('/work/(?P<id>[0-9]+)?', function (){
 //
 //        foreach ($iterator as $file) {
 //            if ($file->isFile()) {
-//                $i++;
-//                $fileName = "/".$file->getFilename();
+//                $fileName = $file->getFilename();
 //
-//                dump($fileName);
-//                $res = db()->query("select * from works where photoName = :photoName", ['photoName' => $fileName])->get();
+////                dump($fileName);
+//                $res = db()->query("select * from works where photoName like CONCAT('%', :photoName)", ['photoName' => $fileName])->get();
 //                if (!$res) {
+//                    print_r("имя файла `$fileName` нету в таблице mysql.<br>");
+//                    $n++;
 //                    @unlink($file->getPathname());
+//                } else {
+//                    $y++;
+//                    print_r("имя файла: `$fileName` есть в таблице mysql.<br>");
 //                }
 //            }
 //        }
+//        dump($y);
+//        dd($n);
 //    } catch (Exception $e) {
 //        echo "Ошибка при чтении директории: " . $e->getMessage();
 //    }
