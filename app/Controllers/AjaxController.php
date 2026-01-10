@@ -3,6 +3,8 @@
 
 namespace App\Controllers;
 
+use PHPFrw\Pagination;
+
 class AjaxController extends BaseController
 {
     //TODO чтобы не запрашивать Все работы при любой странице сайта
@@ -132,5 +134,48 @@ class AjaxController extends BaseController
             die;
         }
         echo 'ошибка в worksByCategoryId()';die;
+    }
+
+
+    public function tBodyWorks()
+    {
+        $countWorks = db()->getCount('works');
+        $pagination = new Pagination($countWorks);
+
+        $data = request()->getData();
+        $strSearch = isset($data['strSearch']) ? " where works.title like '%".$data['strSearch']."%' " : false;
+
+
+        $pagePag = isset($data['pagePag']) ?? false;
+
+        $slice = $strSearch
+            ? ''
+            : "limit {$pagination->perPage()} offset {$pagination->getOffset()}";
+
+        $works = db()->query("
+            select works.id, works.title, works.photoName, works.timeCreate,
+                   publish.title as publish,
+                   categories.title as category
+            from works
+            join publish on works.publish=publish.publish_id
+            join categories on works.category_id=categories.id
+            {$strSearch}
+            order by works.id DESC
+            {$slice}
+            ")->get();
+        foreach ($works as $k => $v) {
+            $works[$k]['timeCreate'] = $this->date_ru($v['timeCreate']);
+        }
+
+        echo json_encode([
+            'countWorks' => db()->getCount('works'),
+            'pagination' => $strSearch ? '' : $pagination->getHtml(),
+            'tBody' => view()->renderPartial("incs/admin/tBodyWorks", [
+                'works' => $works
+            ]),
+            'strSearch' => $data['strSearch'] ?? '',
+            'pagePag' => $data['pagePag'] ?? null
+        ]);
+        die;
     }
 }

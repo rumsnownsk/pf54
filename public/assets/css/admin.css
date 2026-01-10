@@ -39,6 +39,14 @@ tr .image_td img{
     display: none;
 }
 
+.field_find{
+    width: auto;
+}
+
+#clear-search {
+    cursor: pointer;
+}
+
 .admin_menu_right a{
     display: inline-flex;
     width: 70px;
@@ -111,4 +119,24 @@ h2{
 
 .inputCoordinate{
     -moz-appearance: textfield;
+}
+
+.paginationField{
+    height: 40px;
+    margin-top: 10px;
+}
+.pagination{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.pagination li{
+    width: 60px;
+    text-align: center;
+}
+
+.pagination li.active:hover a{
+    pointer-events: none;
+    cursor: default;
 }

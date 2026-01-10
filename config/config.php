@@ -1,6 +1,13 @@
 <?php
+define("HOST", $_SERVER['HTTP_HOST']);
+define("ROOT", dirname(__DIR__));
 
-if (getenv('APP_DEBUG') === 'true') {
+$dotenv = Dotenv\Dotenv::createImmutable(ROOT);
+$dotenv->safeLoad();
+
+define("APP_DEBUG", $_ENV['APP_DEBUG']);
+
+if (APP_DEBUG === 'true') {
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
 }
@@ -8,8 +15,7 @@ if (getenv('APP_DEBUG') === 'true') {
 if (PHP_MAJOR_VERSION < 8){
     die("Require PHP version >= 8");
 }
-define("HOST", $_SERVER['HTTP_HOST']);
-define("ROOT", dirname(__DIR__));
+
 const WWW = ROOT.'/public';
 const CONFIG = ROOT.'/config';
 const HELPERS = ROOT.'/helpers';
@@ -30,14 +36,15 @@ const DB_SETTINGS = [
 ];
 
 const PAGINATION_SETTINGS = [
-    'perPage' => 3,
-    'midSize' => 2,
+    'perPage' => 12,
+    'midSize' => 1,
     'maxPages' => 7,
     'tpl' => 'pagination/base'
 ];
 
+
 $whoops = new \Whoops\Run;
-if (getenv('APP_DEBUG')) {
+if (APP_DEBUG) {
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler())->register();
 } else {
     $whoops->pushHandler(new \Whoops\Handler\CallbackHandler(function (Throwable $e){
