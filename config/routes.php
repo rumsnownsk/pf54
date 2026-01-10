@@ -5,7 +5,6 @@
 use App\Controllers\HomeController;
 use App\Controllers\UserController;
 use App\Controllers\AjaxController;
-//use App\Controllers\Api\V1\CategoryController;
 
 const MIDDLEWARE = [
     'auth' => \PHPFrw\Middleware\Auth::class,
@@ -19,6 +18,10 @@ $app->router->post("/admin/build/create", [\App\Controllers\AdminController::cla
 $app->router->get("/admin/build/(?P<id>[0-9]+)", [\App\Controllers\AdminController::class, 'build']);
 $app->router->post("/admin/build/(?P<id>[0-9]+)", [\App\Controllers\AdminController::class, 'store']);
 $app->router->get("/admin/build/(?P<id>[0-9]+)/remove", [\App\Controllers\AdminController::class, 'remove']);
+$app->router->get("/admin/test", function (){
+
+});
+
 
 $app->router->add('/api/v1/test', function (){
     response()->json([
@@ -41,6 +44,8 @@ $app->router->get('/contacts', [HomeController::class, 'contacts']);
 $app->router->get('/allWorks', [AjaxController::class, 'allWorks']);
 $app->router->get('/loadMore', [AjaxController::class, 'loadMore']);
 $app->router->get('/worksByCategoryId', [AjaxController::class, 'worksByCategoryId']);
+$app->router->post('/searchWorks', [AjaxController::class, 'searchWorks'])->withoutCsrfToken();
+$app->router->get('/tBodyWorks', [AjaxController::class, 'tBodyWorks']);
 
 
 $app->router->get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth']);

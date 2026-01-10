@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Work;
 use PHPFrw\Auth;
 use PHPFrw\File;
+use PHPFrw\Pagination;
 
 class AdminController extends BaseController
 {
@@ -24,19 +25,12 @@ class AdminController extends BaseController
 
     public function index(): string
     {
-        $works = db()->query("
-            select works.id, works.title, works.photoName, works.timeCreate, publish.title as publish, categories.title as category
-            from works
-            join publish on works.publish=publish.publish_id
-            join categories on works.category_id=categories.id
-            order by id
-            desc
-            ")->get();
-        foreach ($works as $k => $v) {
-            $works[$k]['timeCreate'] = $this->date_ru($v['timeCreate']);
-        }
+//        $countWorks =db()->getCount('works');
+//        $limit = PAGINATION_SETTINGS['perPage'];
+//
+//        $pagination = new Pagination($countWorks);
         return view('admin/index', [
-            'works' => $works
+//            'pagination' => $pagination,
         ]);
     }
 

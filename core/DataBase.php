@@ -118,4 +118,9 @@ class DataBase
     {
         return $this->connection->lastInsertId();
     }
+
+    public function getCount($table): int
+    {
+        return $this->connection->query("select count(*) from {$table}")->fetchColumn();
+    }
 }

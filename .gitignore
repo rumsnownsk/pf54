@@ -5,9 +5,7 @@ public/favicon.png
 public/images/favicon.ico
 public/webstat/
 
-tmp/cache/
-tmp/errors.log
-tmp/todo.php
+tmp/
 
 composer.lock
 

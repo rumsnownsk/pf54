@@ -6,7 +6,6 @@ namespace PHPFrw;
 
 class Pagination
 {
-
     protected int $countPages;
     protected int $currentPage;
     protected string $uri;
@@ -66,6 +65,11 @@ class Pagination
         return ($this->currentPage - 1) * $this->perPage;
     }
 
+    public function perPage(): int
+    {
+        return $this->perPage;
+    }
+
     public function getHtml()
     {
         $back = '';
@@ -75,6 +79,7 @@ class Pagination
         $pages_left = [];
         $pages_right = [];
         $current_page = $this->currentPage;
+        $count_pages = $this->countPages;
 
         if ($this->currentPage > 1) {
             $back = $this->getLink($this->currentPage - 1);
@@ -107,7 +112,7 @@ class Pagination
         }
 
         return view()->renderPartial($this->tpl, compact('back', 'forward', 'first_page',
-            'last_page', 'pages_left', 'pages_right', 'current_page'));
+            'last_page', 'pages_left', 'pages_right', 'current_page', 'count_pages'));
     }
 
     protected function getLink($page): string

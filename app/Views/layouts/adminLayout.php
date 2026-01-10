@@ -23,16 +23,8 @@
 
 </head>
 <body>
-<?php
-dump([
-    '$_SESSION[csrf_token]' => $_SESSION['csrf_token'],
-    'авторизован?' => \PHPFrw\Auth::isAuth(),
-    'юзер'=>\PHPFrw\Auth::user()
-]);
-//dump($work)
-?>
+
 <!---header---->
-</div>
 <header id="header" class="header">
     <div class="container">
         <div class="headerLine">
@@ -46,6 +38,10 @@ dump([
                             <a class="nav-link" href="<?= base_url('/admin')?>">Весь список</a>
                             <a class="nav-link" href="<?= base_url('/admin/build/create')?>">Создать</a>
                         </div>
+                    </div>
+                    <div class="input-group field_find">
+                        <input type="text" id="search" class="form-control" placeholder="Search...">
+                        <span class="input-group-text" id="clear-search">&times;</span>
                     </div>
                     <div class="navbar-expand admin_menu_right">
                         <a class="a_logout" href="<?= base_url('/logout')?>">logout</a>
@@ -88,7 +84,7 @@ dump([
 <script type="text/javascript" src="<?= base_url('/assets/js/jquery-3.7.1.min.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('/assets/bootstrap/js/bootstrap.min.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('/assets/iziModal/js/iziModal.min.js') ?>"></script>
-<script type="text/javascript" src="<?= base_url('/assets/js/main.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('/assets/js/admin.js') ?>"></script>
 
 <div class="iziModal-alert-success"></div>
 <div class="iziModal-alert-error"></div>
