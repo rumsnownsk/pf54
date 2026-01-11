@@ -265,7 +265,7 @@ section.content {
 }
 
 .lastWorks_item {
-    /*width: 380px;*/
+    height: max-content;
     background-color: #DBDBDB;
     padding: 8px;
 
