@@ -1,6 +1,6 @@
 {
-    "name": "rum/fr.loc",
-    "description": "fr54.com",
+    "name": "rum/pf54",
+    "description": "PHPFrw",
     "autoload": {
         "psr-4": {
             "PHPFrw\\": "core/",

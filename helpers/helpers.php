@@ -67,9 +67,11 @@ function view($view = '', $data = [], $layout=''): string|\PHPFrw\View
 
 #[NoReturn] function abort($error = '', $code = 404): void
 {
-    response()->setResponseCode($code);
-    echo view("errors/{$code}", ['error' => $error], false);
-    die;
+    if (APP_DEBUG !== true) {
+        response()->setResponseCode($code);
+        echo view("errors/{$code}", ['error' => $error], false);
+        die;
+    }
 }
 
 function base_url($path=''): string

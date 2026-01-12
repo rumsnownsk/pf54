@@ -42,7 +42,7 @@
             <div class="lawItem_desc">
                 <p>о положении о формах указателей с наименованиями улиц и номерами домов, размещаемых на зданиях,
                     сооружениях в городе новосибирске, и требованиях к таким указателям</p>
-                <a href="https://novo-sibirsk.ru/upload/iblock/063/43_2021_.pdf"
+                <a href="https://nskpravo.info/upload/iblock/8ec/2021%203545.pdf"
                    target="_blank"
                    title="Документ откроется в новом окне"
                    rel="noopener noreferrer"

@@ -5,9 +5,10 @@ define("ROOT", dirname(__DIR__));
 $dotenv = Dotenv\Dotenv::createImmutable(ROOT);
 $dotenv->safeLoad();
 
-define("APP_DEBUG", $_ENV['APP_DEBUG']);
+$str = $_ENV['APP_DEBUG'];
+define("APP_DEBUG", filter_var($str, FILTER_VALIDATE_BOOLEAN));
 
-if (APP_DEBUG === 'true') {
+if (APP_DEBUG) {
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
 }
@@ -41,7 +42,6 @@ const PAGINATION_SETTINGS = [
     'maxPages' => 7,
     'tpl' => 'pagination/base'
 ];
-
 
 $whoops = new \Whoops\Run;
 if (APP_DEBUG) {
