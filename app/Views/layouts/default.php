@@ -14,7 +14,8 @@
     <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/iziModal/css/iziModal.min.css') ?>">
 <!--    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">-->
     <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/css/mobile-menu.css') ?>">
-    <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/css/main.css') ?>">
+<!--    <link type='text/css' rel="stylesheet" href="--><?php //= base_url('/assets/css/main.css') ?><!--">-->
+    <link type='text/css' rel="stylesheet" href="<?= base_url('/assets/css/new_main.css') ?>">
 
     <meta name="description"
           content="Разработка согласование и получение паспортов фасадов зданий в Новосибирске и других городах">
