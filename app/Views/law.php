@@ -5,13 +5,13 @@
             <div class="lawItem_whatIs">
                 <p class="law_num" >№469</p>
                 <p class="law_date">от 27 сентября 2017 г.</p>
-                <p class="law_date">(в редакции от 24.04.2019 №778)</p>
+                <p class="law_date">(ред. от 27.09.2023)</p>
 
             </div>
             <div class="lawItem_desc">
                 <p>о правилах благоустройства территории города новосибирска и признании утратившими силу отдельных
                     решений совета депутатов города новосибирска</p>
-                <a href="https://novo-sibirsk.ru/upload/iblock/2d7/Pravila-blagoustroystva-goroda-Novosibirska-ot-27-sentyabrya-2017-g.-N-469-pr2019.pdf"
+                <a href="https://degkh.ru/upload/iblock/a30/5hxicq1ia3sn229rikmh0qjexwv5r4u7.pdf"
                    target="_blank"
                    title="Документ откроется в новом окне"
                    rel="noopener noreferrer"
